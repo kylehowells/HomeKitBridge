@@ -48,7 +48,7 @@ typedef NS_OPTIONS(NSInteger, HKBLightCharacteristics) {
  */
 -(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics;
 
-@property (nonatomic, weak) id <HKBLightDelegate> delegate;
+@property (nonatomic, assign) id <HKBLightDelegate> delegate;
 @property (nonatomic, readonly) HKBLightCharacteristics characteristics;
 
 

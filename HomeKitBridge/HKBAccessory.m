@@ -18,34 +18,16 @@
 
 
 
-
-@implementation HKBAccessory (Default_Information)
-
-/**
- *  The default device information to be used if none is supplied.
- */
-+(NSDictionary*)defaultInformation{
-	return objc_getAssociatedObject(self, @selector(defaultInformation));
-}
-/**
- *  Set the default device information to be used if none is supplied
- *
- *  @param information Keys: "name", "manufacturer", "model"
- */
-+(void)setDefaultInformation:(NSDictionary*)information{
-	objc_setAssociatedObject(self, @selector(defaultInformation), information, OBJC_ASSOCIATION_COPY);
-}
-
-@end
-
-
-
-
 @implementation HKBAccessory{
 	NSDictionary *setupInformation;
 	
 	HAKTransportManager *transportManager;
 }
+
++(NSDictionary*)defaultInformation{
+	return @{NameKey: @"Accessory", ModelKey: @"Accessory v1.0", ManufacturerKey: @"Kyle Tech"};
+}
+
 
 -(void)dealloc{
 	[[NSNotificationCenter defaultCenter] removeObserver:self];

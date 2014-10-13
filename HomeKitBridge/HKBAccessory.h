@@ -64,6 +64,12 @@
 
 @interface HKBAccessory (Subclasses)
 /**
+ *  The default device information to be used if none is supplied. Keys: "name", "manufacturer", "model"
+ */
++(NSDictionary*)defaultInformation; // SUBCLASSES: Required to implement or it will fail to connect!
+
+
+/**
  *  Add services to the accessory here. NOTE: Must call super.
  */
 -(void)setupServices;
@@ -74,28 +80,5 @@
  *  @param characteristic The HAKCharacteristic that changed.
  */
 -(void)characteristicDidUpdateValue:(HAKCharacteristic*)characteristic;
-@end
-
-
-
-
-
-
-
-
-@interface HKBAccessory (Default_Information)
-
-/**
- *  The default device information to be used if none is supplied.
- */
-+(NSDictionary*)defaultInformation;
-
-/**
- *  Set the default device information to be used if none is supplied
- *
- *  @param information Keys: "name", "manufacturer", "model"
- */
-+(void)setDefaultInformation:(NSDictionary*)information;
-
 @end
 

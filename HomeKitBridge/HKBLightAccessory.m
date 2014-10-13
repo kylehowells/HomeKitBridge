@@ -11,6 +11,11 @@
 
 @implementation HKBLightAccessory
 
++(NSDictionary*)defaultInformation{
+	return @{NameKey: @"Lightbulb", ModelKey: @"WiFi Lightbulb v1.0", ManufacturerKey: @"Kyle Tech"};
+}
+
+
 #pragma mark - Setup
 
 -(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics{

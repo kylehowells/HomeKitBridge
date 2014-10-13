@@ -20,6 +20,11 @@
 
 @implementation HKBLightAccessoryLIFX
 
++(NSDictionary*)defaultInformation{
+	return @{NameKey:@"Lightbulb", ModelKey:@"WiFi bulb white v1", ManufacturerKey:@"LIFX"};
+}
+
+
 -(void)dealloc{
 	[self.lifxBulb removeLightObserver:self];
 }
@@ -34,15 +39,28 @@
 	
 	// Create light
 	if (self = [super initWithInformation:information andCharacteristics:lightAbilities]) {
-//		self.lifxBulb = lightBulb;
-//		[self updateHKColorValues];
-//		
-//		[self.lifxBulb addLightObserver:self];
-//		self.delegate = self;
+		self.lifxBulb = lightBulb;
+		[self updateHKColorValues];
+
+		[self.lifxBulb addLightObserver:self];
+		self.delegate = self;
 	}
 	
 	return self;
 }
+
+
+// TODO: work out how to define custom characteristics and add the kelvin value of LIFX bulbs
+//-(void)setupServices{
+//	[super setupServices];
+//	
+//	HAKIntegerCharacteristic *kelvin = [[HAKIntegerCharacteristic alloc] init];
+//	kelvin.minimumValue = [NSNumber numberWithInt:LFXHSBKColorMinKelvin];
+//	kelvin.maximumValue = [NSNumber numberWithInt:LFXHSBKColorMaxKelvin];
+//	[self.lightBulbService addCharacteristic:kelvin];
+//}
+
+
 
 
 #pragma mark - Update HomeKit to LIFX values
