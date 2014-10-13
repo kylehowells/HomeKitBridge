@@ -16,6 +16,7 @@
 }
 
 
+
 #pragma mark - Setup
 
 -(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics{
@@ -68,6 +69,11 @@
 	
 	[self.accessory addService:_lightBulbService];
 }
+
+
+
+
+
 
 #pragma mark - HomeKit Notification
 
