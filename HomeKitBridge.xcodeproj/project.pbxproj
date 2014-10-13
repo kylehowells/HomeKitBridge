@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6A619EA104B00D3D2E3 /* Cocoa.framework */; };
+		C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6A719EA104B00D3D2E3 /* Foundation.framework */; };
+		C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; };
+		C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7397D7419E978C100FF9EA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D7319E978C100FF9EA3 /* main.m */; };
 		C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D7619E978C100FF9EA3 /* AppDelegate.m */; };
 		C7397D7919E978C100FF9EA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7397D7819E978C100FF9EA3 /* Images.xcassets */; };
 		C7397D7C19E978C100FF9EA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7397D7A19E978C100FF9EA3 /* MainMenu.xib */; };
 		C7397D8819E978C200FF9EA3 /* HomeKitBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */; };
+		C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */; };
+		C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */; };
+		C7397E8219E9F59D00FF9EA3 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7397E8119E9F59D00FF9EA3 /* LIFXKit.framework */; };
+		C7397E8519E9FC7300FF9EA3 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C7397E8119E9F59D00FF9EA3 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,7 +33,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C7397E8419E9FC6700FF9EA3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */,
+				C7397E8519E9FC7300FF9EA3 /* LIFXKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C734C6A619EA104B00D3D2E3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C734C6A719EA104B00D3D2E3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HAPAccessoryKit.framework; path = "../../../../../../../Applications/HomeKit Accessory Simulator.app/Contents/Frameworks/HAPAccessoryKit.framework"; sourceTree = "<group>"; };
 		C7397D6E19E978C100FF9EA3 /* HomeKitBridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeKitBridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7397D7219E978C100FF9EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7397D7319E978C100FF9EA3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -35,6 +61,126 @@
 		C7397D8119E978C200FF9EA3 /* HomeKitBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeKitBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7397D8619E978C200FF9EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeKitBridgeTests.m; sourceTree = "<group>"; };
+		C7397E0619E97F6500FF9EA3 /* HAKAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAccessory.h; sourceTree = "<group>"; };
+		C7397E0719E97F6500FF9EA3 /* HAKAccessoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryDelegate.h; sourceTree = "<group>"; };
+		C7397E0819E97F6500FF9EA3 /* HAKAccessoryInformationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryInformationService.h; sourceTree = "<group>"; };
+		C7397E0919E97F6500FF9EA3 /* HAKAccessoryKeychainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryKeychainObject.h; sourceTree = "<group>"; };
+		C7397E0A19E97F6500FF9EA3 /* HAKAdministratorOnlyAccessCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAdministratorOnlyAccessCharacteristic.h; sourceTree = "<group>"; };
+		C7397E0B19E97F6500FF9EA3 /* HAKArrayCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKArrayCharacteristic.h; sourceTree = "<group>"; };
+		C7397E0C19E97F6500FF9EA3 /* HAKAudioFeedbackCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKAudioFeedbackCharacteristic.h; sourceTree = "<group>"; };
+		C7397E0D19E97F6500FF9EA3 /* HAKBoolCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKBoolCharacteristic.h; sourceTree = "<group>"; };
+		C7397E0E19E97F6500FF9EA3 /* HAKBrightnessCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKBrightnessCharacteristic.h; sourceTree = "<group>"; };
+		C7397E0F19E97F6500FF9EA3 /* HAKChaCha20.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKChaCha20.h; sourceTree = "<group>"; };
+		C7397E1019E97F6500FF9EA3 /* HAKChaCha20Poly1305.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKChaCha20Poly1305.h; sourceTree = "<group>"; };
+		C7397E1119E97F6500FF9EA3 /* HAKChaChaPolyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKChaChaPolyData.h; sourceTree = "<group>"; };
+		C7397E1219E97F6500FF9EA3 /* HAKCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1319E97F6500FF9EA3 /* HAKClassVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKClassVersion.h; sourceTree = "<group>"; };
+		C7397E1419E97F6500FF9EA3 /* HAKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKConnection.h; sourceTree = "<group>"; };
+		C7397E1519E97F6500FF9EA3 /* HAKControllerKeychainObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKControllerKeychainObject.h; sourceTree = "<group>"; };
+		C7397E1619E97F6500FF9EA3 /* HAKCoolingThresholdTemperatureCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCoolingThresholdTemperatureCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1719E97F6500FF9EA3 /* HAKCurrentDoorStateCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCurrentDoorStateCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1819E97F6500FF9EA3 /* HAKCurrentHeatingCoolingModeCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCurrentHeatingCoolingModeCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1919E97F6500FF9EA3 /* HAKCurrentRelativeHumidityCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCurrentRelativeHumidityCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1A19E97F6500FF9EA3 /* HAKCurrentTemperatureCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCurrentTemperatureCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1B19E97F6500FF9EA3 /* HAKCurve25519.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKCurve25519.h; sourceTree = "<group>"; };
+		C7397E1C19E97F6500FF9EA3 /* HAKDataCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKDataCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1D19E97F6500FF9EA3 /* HAKDateCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKDateCharacteristic.h; sourceTree = "<group>"; };
+		C7397E1E19E97F6500FF9EA3 /* HAKDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKDeprecated.h; sourceTree = "<group>"; };
+		C7397E1F19E97F6500FF9EA3 /* HAKDictionaryCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKDictionaryCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2019E97F6500FF9EA3 /* HAKFloatCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKFloatCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2119E97F6500FF9EA3 /* HAKGarageDoorOpenerService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKGarageDoorOpenerService.h; sourceTree = "<group>"; };
+		C7397E2219E97F6500FF9EA3 /* HAKHeatingThresholdTemperatureCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHeatingThresholdTemperatureCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2319E97F6500FF9EA3 /* HAKHKDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHKDF.h; sourceTree = "<group>"; };
+		C7397E2419E97F6500FF9EA3 /* HAKHTTPConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHTTPConnection.h; sourceTree = "<group>"; };
+		C7397E2519E97F6500FF9EA3 /* HAKHTTPConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHTTPConnectionDelegate.h; sourceTree = "<group>"; };
+		C7397E2619E97F6500FF9EA3 /* HAKHTTPMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHTTPMessage.h; sourceTree = "<group>"; };
+		C7397E2719E97F6500FF9EA3 /* HAKHTTPRequestMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHTTPRequestMessage.h; sourceTree = "<group>"; };
+		C7397E2819E97F6500FF9EA3 /* HAKHTTPResponseMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHTTPResponseMessage.h; sourceTree = "<group>"; };
+		C7397E2919E97F6500FF9EA3 /* HAKHueCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKHueCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2A19E97F6500FF9EA3 /* HAKIdentifyCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKIdentifyCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2B19E97F6500FF9EA3 /* HAKInstanceIDPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKInstanceIDPool.h; sourceTree = "<group>"; };
+		C7397E2C19E97F6500FF9EA3 /* HAKIntegerCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKIntegerCharacteristic.h; sourceTree = "<group>"; };
+		C7397E2D19E97F6500FF9EA3 /* HAKIPTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKIPTransport.h; sourceTree = "<group>"; };
+		C7397E2E19E97F6500FF9EA3 /* HAKKeychainKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKKeychainKey.h; sourceTree = "<group>"; };
+		C7397E2F19E97F6500FF9EA3 /* HAKKeychainService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKKeychainService.h; sourceTree = "<group>"; };
+		C7397E3019E97F6500FF9EA3 /* HAKLightBulbService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLightBulbService.h; sourceTree = "<group>"; };
+		C7397E3119E97F6500FF9EA3 /* HAKLockManagementAutoSecureTimeoutCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockManagementAutoSecureTimeoutCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3219E97F6500FF9EA3 /* HAKLockManagementControlPointCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockManagementControlPointCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3319E97F6500FF9EA3 /* HAKLockManagementService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockManagementService.h; sourceTree = "<group>"; };
+		C7397E3419E97F6500FF9EA3 /* HAKLockMechanismCurrentStateCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockMechanismCurrentStateCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3519E97F6500FF9EA3 /* HAKLockMechanismLastKnownActionCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockMechanismLastKnownActionCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3619E97F6500FF9EA3 /* HAKLockMechanismService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockMechanismService.h; sourceTree = "<group>"; };
+		C7397E3719E97F6500FF9EA3 /* HAKLockMechanismTargetStateCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLockMechanismTargetStateCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3819E97F6500FF9EA3 /* HAKLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLogger.h; sourceTree = "<group>"; };
+		C7397E3919E97F6500FF9EA3 /* HAKLogsCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKLogsCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3A19E97F6500FF9EA3 /* HAKManufacturerCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKManufacturerCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3B19E97F6500FF9EA3 /* HAKModelCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKModelCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3C19E97F6500FF9EA3 /* HAKMotionDetectedCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKMotionDetectedCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3D19E97F6500FF9EA3 /* HAKNameCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKNameCharacteristic.h; sourceTree = "<group>"; };
+		C7397E3E19E97F6500FF9EA3 /* HAKNetService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKNetService.h; sourceTree = "<group>"; };
+		C7397E3F19E97F6500FF9EA3 /* HAKNumberCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKNumberCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4019E97F6500FF9EA3 /* HAKObstructionDetectedCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKObstructionDetectedCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4119E97F6500FF9EA3 /* HAKOnCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKOnCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4219E97F6500FF9EA3 /* HAKOutletInUseCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKOutletInUseCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4319E97F6500FF9EA3 /* HAKOutletService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKOutletService.h; sourceTree = "<group>"; };
+		C7397E4419E97F6500FF9EA3 /* HAKPairingSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPairingSession.h; sourceTree = "<group>"; };
+		C7397E4519E97F6500FF9EA3 /* HAKPairingSessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPairingSessionDelegate.h; sourceTree = "<group>"; };
+		C7397E4619E97F6500FF9EA3 /* HAKPairSetupSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPairSetupSession.h; sourceTree = "<group>"; };
+		C7397E4719E97F6500FF9EA3 /* HAKPairVerifySession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPairVerifySession.h; sourceTree = "<group>"; };
+		C7397E4819E97F6500FF9EA3 /* HAKPairVerifySessionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPairVerifySessionDelegate.h; sourceTree = "<group>"; };
+		C7397E4919E97F6500FF9EA3 /* HAKPoly1305.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKPoly1305.h; sourceTree = "<group>"; };
+		C7397E4A19E97F6500FF9EA3 /* HAKSaturationCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSaturationCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4B19E97F6500FF9EA3 /* HAKSecuritySession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSecuritySession.h; sourceTree = "<group>"; };
+		C7397E4C19E97F6500FF9EA3 /* HAKSecuritySessionPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSecuritySessionPacket.h; sourceTree = "<group>"; };
+		C7397E4D19E97F6500FF9EA3 /* HAKSerialNumberCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSerialNumberCharacteristic.h; sourceTree = "<group>"; };
+		C7397E4E19E97F6500FF9EA3 /* HAKService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKService.h; sourceTree = "<group>"; };
+		C7397E4F19E97F6500FF9EA3 /* HAKServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKServiceDelegate.h; sourceTree = "<group>"; };
+		C7397E5019E97F6500FF9EA3 /* HAKSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSocket.h; sourceTree = "<group>"; };
+		C7397E5119E97F6500FF9EA3 /* HAKSocketDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSocketDelegate.h; sourceTree = "<group>"; };
+		C7397E5219E97F6500FF9EA3 /* HAKStringCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKStringCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5319E97F6500FF9EA3 /* HAKSwitchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKSwitchService.h; sourceTree = "<group>"; };
+		C7397E5419E97F6500FF9EA3 /* HAKTargetDoorStateCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTargetDoorStateCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5519E97F6500FF9EA3 /* HAKTargetHeatingCoolingModeCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTargetHeatingCoolingModeCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5619E97F6500FF9EA3 /* HAKTargetRelativeHumidityCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTargetRelativeHumidityCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5719E97F6500FF9EA3 /* HAKTargetTemperatureCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTargetTemperatureCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5819E97F6500FF9EA3 /* HAKTemperatureUnitsCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTemperatureUnitsCharacteristic.h; sourceTree = "<group>"; };
+		C7397E5919E97F6500FF9EA3 /* HAKThermostatService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKThermostatService.h; sourceTree = "<group>"; };
+		C7397E5A19E97F6500FF9EA3 /* HAKTLV8Characteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTLV8Characteristic.h; sourceTree = "<group>"; };
+		C7397E5B19E97F6500FF9EA3 /* HAKTLV8Container.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTLV8Container.h; sourceTree = "<group>"; };
+		C7397E5C19E97F6500FF9EA3 /* HAKTLV8Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTLV8Packet.h; sourceTree = "<group>"; };
+		C7397E5D19E97F6500FF9EA3 /* HAKTransport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTransport.h; sourceTree = "<group>"; };
+		C7397E5E19E97F6500FF9EA3 /* HAKTransportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKTransportManager.h; sourceTree = "<group>"; };
+		C7397E5F19E97F6500FF9EA3 /* HAKUnsignedCharCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKUnsignedCharCharacteristic.h; sourceTree = "<group>"; };
+		C7397E6019E97F6500FF9EA3 /* HAKUnsignedIntCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKUnsignedIntCharacteristic.h; sourceTree = "<group>"; };
+		C7397E6119E97F6500FF9EA3 /* HAKUnsignedLongCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKUnsignedLongCharacteristic.h; sourceTree = "<group>"; };
+		C7397E6219E97F6500FF9EA3 /* HAKUnsignedShortCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKUnsignedShortCharacteristic.h; sourceTree = "<group>"; };
+		C7397E6319E97F6500FF9EA3 /* HAKUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKUUID.h; sourceTree = "<group>"; };
+		C7397E6419E97F6500FF9EA3 /* HAKVersionCharacteristic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKVersionCharacteristic.h; sourceTree = "<group>"; };
+		C7397E6519E97F6500FF9EA3 /* HAKVersionedArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKVersionedArchiver.h; sourceTree = "<group>"; };
+		C7397E6619E97F6500FF9EA3 /* HAKVersionedUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKVersionedUnarchiver.h; sourceTree = "<group>"; };
+		C7397E6719E97F6500FF9EA3 /* HAKVersioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HAKVersioning.h; sourceTree = "<group>"; };
+		C7397E6819E97F6500FF9EA3 /* NSCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCoding.h; sourceTree = "<group>"; };
+		C7397E6919E97F6500FF9EA3 /* NSCopying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSCopying.h; sourceTree = "<group>"; };
+		C7397E6A19E97F6500FF9EA3 /* NSData-HAKChaChaPoly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData-HAKChaChaPoly.h"; sourceTree = "<group>"; };
+		C7397E6B19E97F6500FF9EA3 /* NSDictionary-Safe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary-Safe.h"; sourceTree = "<group>"; };
+		C7397E6C19E97F6500FF9EA3 /* NSError-HAKError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError-HAKError.h"; sourceTree = "<group>"; };
+		C7397E6D19E97F6500FF9EA3 /* NSKeyedUnarchiverDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSKeyedUnarchiverDelegate.h; sourceTree = "<group>"; };
+		C7397E6E19E97F6500FF9EA3 /* NSNetServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNetServiceDelegate.h; sourceTree = "<group>"; };
+		C7397E6F19E97F6500FF9EA3 /* NSObject-Runtime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject-Runtime.h"; sourceTree = "<group>"; };
+		C7397E7019E97F6500FF9EA3 /* NSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSObject.h; sourceTree = "<group>"; };
+		C7397E7119E97F6500FF9EA3 /* NSStreamDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStreamDelegate.h; sourceTree = "<group>"; };
+		C7397E7219E97F6500FF9EA3 /* NSString-NSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-NSData.h"; sourceTree = "<group>"; };
+		C7397E7319E97F6500FF9EA3 /* NSURL-Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL-Query.h"; sourceTree = "<group>"; };
+		C7397E7419E97F6500FF9EA3 /* NSUserDefaults-HAK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults-HAK.h"; sourceTree = "<group>"; };
+		C7397E7519E97FAE00FF9EA3 /* HAKAccessoryKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryKit.h; sourceTree = "<group>"; };
+		C7397E7A19E9849E00FF9EA3 /* HKBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBAccessory.h; sourceTree = "<group>"; };
+		C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBAccessory.m; sourceTree = "<group>"; };
+		C7397E7E19E9859F00FF9EA3 /* HKBLightAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBLightAccessory.h; sourceTree = "<group>"; };
+		C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBLightAccessory.m; sourceTree = "<group>"; };
+		C7397E8119E9F59D00FF9EA3 /* LIFXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LIFXKit.framework; sourceTree = "<group>"; };
+		C78BEFE419EB68660005278C /* HKBLightAccessoryLIFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKBLightAccessoryLIFX.h; path = LIFX/HKBLightAccessoryLIFX.h; sourceTree = "<group>"; };
+		C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKBLightAccessoryLIFX.m; path = LIFX/HKBLightAccessoryLIFX.m; sourceTree = "<group>"; };
+		C78BEFE719EB6B1C0005278C /* HKBLightAccessory+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HKBLightAccessory+Subclass.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +188,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */,
+				C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */,
+				C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */,
+				C7397E8219E9F59D00FF9EA3 /* LIFXKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +228,7 @@
 			children = (
 				C7397D7519E978C100FF9EA3 /* AppDelegate.h */,
 				C7397D7619E978C100FF9EA3 /* AppDelegate.m */,
+				C7397E7919E9834800FF9EA3 /* HomeKit */,
 				C7397D7819E978C100FF9EA3 /* Images.xcassets */,
 				C7397D7A19E978C100FF9EA3 /* MainMenu.xib */,
 				C7397D7119E978C100FF9EA3 /* Supporting Files */,
@@ -88,6 +239,7 @@
 		C7397D7119E978C100FF9EA3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C7397D9119E97CE100FF9EA3 /* Frameworks */,
 				C7397D7219E978C100FF9EA3 /* Info.plist */,
 				C7397D7319E978C100FF9EA3 /* main.m */,
 			);
@@ -111,6 +263,159 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C7397D9119E97CE100FF9EA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C7397E0519E97F6500FF9EA3 /* HAPAccessoryKit Headers */,
+				C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */,
+				C734C6A619EA104B00D3D2E3 /* Cocoa.framework */,
+				C734C6A719EA104B00D3D2E3 /* Foundation.framework */,
+				C7397E8119E9F59D00FF9EA3 /* LIFXKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C7397E0519E97F6500FF9EA3 /* HAPAccessoryKit Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C7397E7519E97FAE00FF9EA3 /* HAKAccessoryKit.h */,
+				C7397E0619E97F6500FF9EA3 /* HAKAccessory.h */,
+				C7397E0719E97F6500FF9EA3 /* HAKAccessoryDelegate.h */,
+				C7397E0819E97F6500FF9EA3 /* HAKAccessoryInformationService.h */,
+				C7397E0919E97F6500FF9EA3 /* HAKAccessoryKeychainObject.h */,
+				C7397E0A19E97F6500FF9EA3 /* HAKAdministratorOnlyAccessCharacteristic.h */,
+				C7397E0B19E97F6500FF9EA3 /* HAKArrayCharacteristic.h */,
+				C7397E0C19E97F6500FF9EA3 /* HAKAudioFeedbackCharacteristic.h */,
+				C7397E0D19E97F6500FF9EA3 /* HAKBoolCharacteristic.h */,
+				C7397E0E19E97F6500FF9EA3 /* HAKBrightnessCharacteristic.h */,
+				C7397E0F19E97F6500FF9EA3 /* HAKChaCha20.h */,
+				C7397E1019E97F6500FF9EA3 /* HAKChaCha20Poly1305.h */,
+				C7397E1119E97F6500FF9EA3 /* HAKChaChaPolyData.h */,
+				C7397E1219E97F6500FF9EA3 /* HAKCharacteristic.h */,
+				C7397E1319E97F6500FF9EA3 /* HAKClassVersion.h */,
+				C7397E1419E97F6500FF9EA3 /* HAKConnection.h */,
+				C7397E1519E97F6500FF9EA3 /* HAKControllerKeychainObject.h */,
+				C7397E1619E97F6500FF9EA3 /* HAKCoolingThresholdTemperatureCharacteristic.h */,
+				C7397E1719E97F6500FF9EA3 /* HAKCurrentDoorStateCharacteristic.h */,
+				C7397E1819E97F6500FF9EA3 /* HAKCurrentHeatingCoolingModeCharacteristic.h */,
+				C7397E1919E97F6500FF9EA3 /* HAKCurrentRelativeHumidityCharacteristic.h */,
+				C7397E1A19E97F6500FF9EA3 /* HAKCurrentTemperatureCharacteristic.h */,
+				C7397E1B19E97F6500FF9EA3 /* HAKCurve25519.h */,
+				C7397E1C19E97F6500FF9EA3 /* HAKDataCharacteristic.h */,
+				C7397E1D19E97F6500FF9EA3 /* HAKDateCharacteristic.h */,
+				C7397E1E19E97F6500FF9EA3 /* HAKDeprecated.h */,
+				C7397E1F19E97F6500FF9EA3 /* HAKDictionaryCharacteristic.h */,
+				C7397E2019E97F6500FF9EA3 /* HAKFloatCharacteristic.h */,
+				C7397E2119E97F6500FF9EA3 /* HAKGarageDoorOpenerService.h */,
+				C7397E2219E97F6500FF9EA3 /* HAKHeatingThresholdTemperatureCharacteristic.h */,
+				C7397E2319E97F6500FF9EA3 /* HAKHKDF.h */,
+				C7397E2419E97F6500FF9EA3 /* HAKHTTPConnection.h */,
+				C7397E2519E97F6500FF9EA3 /* HAKHTTPConnectionDelegate.h */,
+				C7397E2619E97F6500FF9EA3 /* HAKHTTPMessage.h */,
+				C7397E2719E97F6500FF9EA3 /* HAKHTTPRequestMessage.h */,
+				C7397E2819E97F6500FF9EA3 /* HAKHTTPResponseMessage.h */,
+				C7397E2919E97F6500FF9EA3 /* HAKHueCharacteristic.h */,
+				C7397E2A19E97F6500FF9EA3 /* HAKIdentifyCharacteristic.h */,
+				C7397E2B19E97F6500FF9EA3 /* HAKInstanceIDPool.h */,
+				C7397E2C19E97F6500FF9EA3 /* HAKIntegerCharacteristic.h */,
+				C7397E2D19E97F6500FF9EA3 /* HAKIPTransport.h */,
+				C7397E2E19E97F6500FF9EA3 /* HAKKeychainKey.h */,
+				C7397E2F19E97F6500FF9EA3 /* HAKKeychainService.h */,
+				C7397E3019E97F6500FF9EA3 /* HAKLightBulbService.h */,
+				C7397E3119E97F6500FF9EA3 /* HAKLockManagementAutoSecureTimeoutCharacteristic.h */,
+				C7397E3219E97F6500FF9EA3 /* HAKLockManagementControlPointCharacteristic.h */,
+				C7397E3319E97F6500FF9EA3 /* HAKLockManagementService.h */,
+				C7397E3419E97F6500FF9EA3 /* HAKLockMechanismCurrentStateCharacteristic.h */,
+				C7397E3519E97F6500FF9EA3 /* HAKLockMechanismLastKnownActionCharacteristic.h */,
+				C7397E3619E97F6500FF9EA3 /* HAKLockMechanismService.h */,
+				C7397E3719E97F6500FF9EA3 /* HAKLockMechanismTargetStateCharacteristic.h */,
+				C7397E3819E97F6500FF9EA3 /* HAKLogger.h */,
+				C7397E3919E97F6500FF9EA3 /* HAKLogsCharacteristic.h */,
+				C7397E3A19E97F6500FF9EA3 /* HAKManufacturerCharacteristic.h */,
+				C7397E3B19E97F6500FF9EA3 /* HAKModelCharacteristic.h */,
+				C7397E3C19E97F6500FF9EA3 /* HAKMotionDetectedCharacteristic.h */,
+				C7397E3D19E97F6500FF9EA3 /* HAKNameCharacteristic.h */,
+				C7397E3E19E97F6500FF9EA3 /* HAKNetService.h */,
+				C7397E3F19E97F6500FF9EA3 /* HAKNumberCharacteristic.h */,
+				C7397E4019E97F6500FF9EA3 /* HAKObstructionDetectedCharacteristic.h */,
+				C7397E4119E97F6500FF9EA3 /* HAKOnCharacteristic.h */,
+				C7397E4219E97F6500FF9EA3 /* HAKOutletInUseCharacteristic.h */,
+				C7397E4319E97F6500FF9EA3 /* HAKOutletService.h */,
+				C7397E4419E97F6500FF9EA3 /* HAKPairingSession.h */,
+				C7397E4519E97F6500FF9EA3 /* HAKPairingSessionDelegate.h */,
+				C7397E4619E97F6500FF9EA3 /* HAKPairSetupSession.h */,
+				C7397E4719E97F6500FF9EA3 /* HAKPairVerifySession.h */,
+				C7397E4819E97F6500FF9EA3 /* HAKPairVerifySessionDelegate.h */,
+				C7397E4919E97F6500FF9EA3 /* HAKPoly1305.h */,
+				C7397E4A19E97F6500FF9EA3 /* HAKSaturationCharacteristic.h */,
+				C7397E4B19E97F6500FF9EA3 /* HAKSecuritySession.h */,
+				C7397E4C19E97F6500FF9EA3 /* HAKSecuritySessionPacket.h */,
+				C7397E4D19E97F6500FF9EA3 /* HAKSerialNumberCharacteristic.h */,
+				C7397E4E19E97F6500FF9EA3 /* HAKService.h */,
+				C7397E4F19E97F6500FF9EA3 /* HAKServiceDelegate.h */,
+				C7397E5019E97F6500FF9EA3 /* HAKSocket.h */,
+				C7397E5119E97F6500FF9EA3 /* HAKSocketDelegate.h */,
+				C7397E5219E97F6500FF9EA3 /* HAKStringCharacteristic.h */,
+				C7397E5319E97F6500FF9EA3 /* HAKSwitchService.h */,
+				C7397E5419E97F6500FF9EA3 /* HAKTargetDoorStateCharacteristic.h */,
+				C7397E5519E97F6500FF9EA3 /* HAKTargetHeatingCoolingModeCharacteristic.h */,
+				C7397E5619E97F6500FF9EA3 /* HAKTargetRelativeHumidityCharacteristic.h */,
+				C7397E5719E97F6500FF9EA3 /* HAKTargetTemperatureCharacteristic.h */,
+				C7397E5819E97F6500FF9EA3 /* HAKTemperatureUnitsCharacteristic.h */,
+				C7397E5919E97F6500FF9EA3 /* HAKThermostatService.h */,
+				C7397E5A19E97F6500FF9EA3 /* HAKTLV8Characteristic.h */,
+				C7397E5B19E97F6500FF9EA3 /* HAKTLV8Container.h */,
+				C7397E5C19E97F6500FF9EA3 /* HAKTLV8Packet.h */,
+				C7397E5D19E97F6500FF9EA3 /* HAKTransport.h */,
+				C7397E5E19E97F6500FF9EA3 /* HAKTransportManager.h */,
+				C7397E5F19E97F6500FF9EA3 /* HAKUnsignedCharCharacteristic.h */,
+				C7397E6019E97F6500FF9EA3 /* HAKUnsignedIntCharacteristic.h */,
+				C7397E6119E97F6500FF9EA3 /* HAKUnsignedLongCharacteristic.h */,
+				C7397E6219E97F6500FF9EA3 /* HAKUnsignedShortCharacteristic.h */,
+				C7397E6319E97F6500FF9EA3 /* HAKUUID.h */,
+				C7397E6419E97F6500FF9EA3 /* HAKVersionCharacteristic.h */,
+				C7397E6519E97F6500FF9EA3 /* HAKVersionedArchiver.h */,
+				C7397E6619E97F6500FF9EA3 /* HAKVersionedUnarchiver.h */,
+				C7397E6719E97F6500FF9EA3 /* HAKVersioning.h */,
+				C7397E6819E97F6500FF9EA3 /* NSCoding.h */,
+				C7397E6919E97F6500FF9EA3 /* NSCopying.h */,
+				C7397E6A19E97F6500FF9EA3 /* NSData-HAKChaChaPoly.h */,
+				C7397E6B19E97F6500FF9EA3 /* NSDictionary-Safe.h */,
+				C7397E6C19E97F6500FF9EA3 /* NSError-HAKError.h */,
+				C7397E6D19E97F6500FF9EA3 /* NSKeyedUnarchiverDelegate.h */,
+				C7397E6E19E97F6500FF9EA3 /* NSNetServiceDelegate.h */,
+				C7397E6F19E97F6500FF9EA3 /* NSObject-Runtime.h */,
+				C7397E7019E97F6500FF9EA3 /* NSObject.h */,
+				C7397E7119E97F6500FF9EA3 /* NSStreamDelegate.h */,
+				C7397E7219E97F6500FF9EA3 /* NSString-NSData.h */,
+				C7397E7319E97F6500FF9EA3 /* NSURL-Query.h */,
+				C7397E7419E97F6500FF9EA3 /* NSUserDefaults-HAK.h */,
+			);
+			path = "HAPAccessoryKit Headers";
+			sourceTree = SOURCE_ROOT;
+		};
+		C7397E7919E9834800FF9EA3 /* HomeKit */ = {
+			isa = PBXGroup;
+			children = (
+				C7397E7A19E9849E00FF9EA3 /* HKBAccessory.h */,
+				C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */,
+				C78BEFE719EB6B1C0005278C /* HKBLightAccessory+Subclass.h */,
+				C7397E7E19E9859F00FF9EA3 /* HKBLightAccessory.h */,
+				C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */,
+				C78BEFE319EB681E0005278C /* LIFX Subclass */,
+			);
+			name = HomeKit;
+			sourceTree = "<group>";
+		};
+		C78BEFE319EB681E0005278C /* LIFX Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				C78BEFE419EB68660005278C /* HKBLightAccessoryLIFX.h */,
+				C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */,
+			);
+			name = "LIFX Subclass";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +426,7 @@
 				C7397D6A19E978C100FF9EA3 /* Sources */,
 				C7397D6B19E978C100FF9EA3 /* Frameworks */,
 				C7397D6C19E978C100FF9EA3 /* Resources */,
+				C7397E8419E9FC6700FF9EA3 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -211,6 +517,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */,
+				C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */,
+				C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */,
+				C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */,
 				C7397D7419E978C100FF9EA3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -326,6 +635,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
+					"$(PROJECT_DIR)/HomeKitBridge",
+				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -337,6 +651,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
+					"$(PROJECT_DIR)/HomeKitBridge",
+				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -398,6 +717,7 @@
 				C7397D8D19E978C200FF9EA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7397D8E19E978C200FF9EA3 /* Build configuration list for PBXNativeTarget "HomeKitBridgeTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +726,7 @@
 				C7397D9019E978C200FF9EA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
