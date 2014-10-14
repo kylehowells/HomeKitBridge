@@ -11,7 +11,7 @@ HomeKitBridge
 An API designed to easily allow you to hook up existing devices and services to HomeKit using the private "HomeKit Accessory" Framework bundled with the HomeKit Accessory Simulator.
 Basically just wraps the private HomeKitAccessoryKit framework API's in a way designed to bridge across to other products APIs.
 
-All accessories are their own accessory with this API. It doesn't simulate a HomeKit "bridge" but instead pretends all the accessories natively supporting HomeKit.
+All accessories are their own accessory with this API. It doesn't simulate a HomeKit "bridge" but instead pretends all the accessories natively support HomeKit.
 
 Accessories aren't presisted to file and reloaded each time. This is on purpose as it is presumed you'll be using an existing API to discover and setup devices each time.
 
@@ -19,6 +19,10 @@ Accessories do cache their "Transport and Transport Manager" to file though, as 
 
 Instead the "Transport" objects are saved to file before they have any accessories or characteristics attached to them (so those don't save as well).
 
+
+Supported Devices
+=============
+ - [LIFX Wifi Lightbulbs](http://lifx.co)
 
 
 Building
