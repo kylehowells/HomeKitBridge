@@ -30,6 +30,10 @@ The project reaches inside it and grabs the private framework as it builds.
 The easiest way to get the HomeKit simulator is to go in Xcode to the menu bar > Xcode > Open Developer Tool > More Developer Tools... > And then download "Hardware tools for Xcode 6.1".
 
 
+On your iOS device
+=============
+To setup the HomeKit accessories on your device you'll need a HomeKit app. Apple doesn't provide one and I don't know of any in the AppStore. I'm currently using this one: https://github.com/KhaosT/HomeKit-Demo
+
 
 TODO
 =============
