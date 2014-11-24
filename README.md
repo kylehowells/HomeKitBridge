@@ -13,7 +13,7 @@ Basically just wraps the private HomeKitAccessoryKit framework API's in a way de
 
 All accessories are their own accessory with this API. It doesn't simulate a HomeKit "bridge" but instead pretends all the accessories natively support HomeKit.
 
-Accessories aren't presisted to file and reloaded each time. This is on purpose as it is presumed you'll be using an existing API to discover and setup devices each time.
+Accessories aren't persisted to file and reloaded each time. This is on purpose as it is presumed you'll be using an existing API to discover and setup devices each time.
 
 Accessories do cache their "Transport and Transport Manager" to file though, as you can see in HKBAccessory.m:147.  The reason for this is because each time a "transport" object is created it generates a new password. If it wasn't saved to file then on your iPhone you'd have to reconnect to and setup all your devices each time this application starts up.
 
