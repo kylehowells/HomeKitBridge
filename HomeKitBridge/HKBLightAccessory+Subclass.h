@@ -8,6 +8,11 @@
 
 
 @interface HKBLightAccessory ()
-@property (nonatomic, readonly) HAKLightBulbService *lightBulbService;
+@property (nonatomic, readonly) HAKService *lightBulbService;
+
+@property (nonatomic, readonly) HAKCharacteristic *powerCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *saturationCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *hueCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *brightnessCharacteristic;
 @end
 

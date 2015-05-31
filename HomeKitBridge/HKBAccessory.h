@@ -72,7 +72,7 @@
 /**
  *  Add services to the accessory here. NOTE: Must call super.
  */
--(void)setupServices;
+-(void)setupServices NS_REQUIRES_SUPER;
 
 /**
  *  Updates received are sent to this method.

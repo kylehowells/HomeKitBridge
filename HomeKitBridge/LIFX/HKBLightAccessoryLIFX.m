@@ -43,7 +43,7 @@
 		[self updateHKColorValues];
 
 		[self.lifxBulb addLightObserver:self];
-		self.delegate = self;
+		[super setDelegate:self];
 	}
 	
 	return self;
@@ -71,12 +71,13 @@
 	// saturation;	//	[0, 1]	 -  [0, 100]
 	// brightness;	//	[0, 1]	 -  [0, 100]
 	
-	[self.lightBulbService.brightnessCharacteristic setIntegerValue:(self.lifxBulb.color.brightness * 100)];
-	[self.lightBulbService.saturationCharacteristic setFloatValue:(self.lifxBulb.color.saturation * 100)];
-	[self.lightBulbService.hueCharacteristic setFloatValue:(self.lifxBulb.color.hue)];
+	self.brightnessCharacteristic.value = @((self.lifxBulb.color.brightness * 100));
+	self.saturationCharacteristic.value = @(self.lifxBulb.color.saturation * 100);
+	self.hueCharacteristic.value = @(self.lifxBulb.color.hue);
+	// TODO: Possible error point ^^^^^^^
 }
 -(void)updateHKPowerState{
-	[self.lightBulbService.onCharacteristic setBoolValue:(self.lifxBulb.powerState == LFXPowerStateOn)];
+	self.powerCharacteristic.value = @((BOOL)(self.lifxBulb.powerState == LFXPowerStateOn));
 }
 
 
@@ -87,7 +88,7 @@
 #pragma mark - LFXLightObserver
 
 -(void)light:(LFXLight *)light didChangeLabel:(NSString *)label{
-	[self.lightBulbService.accessory.accessoryInformationService.nameCharacteristic setStringValue:light.label];
+	self.accessory.name = light.label;
 }
 -(void)light:(LFXLight *)light didChangeColor:(LFXHSBKColor *)color{
 	[self updateHKColorValues];
@@ -146,7 +147,7 @@
 #pragma mark - Properties
 
 -(NSString*)deviceID{
-	return self.accessory.accessoryInformationService.serialNumberCharacteristic.serialNumber;
+	return self.accessory.serialNumber;
 }
 
 @end

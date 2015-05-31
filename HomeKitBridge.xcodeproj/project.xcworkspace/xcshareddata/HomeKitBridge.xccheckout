@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>EC167C07-5947-40D3-8CE6-EAE1FC515136</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</key>
+		<string>https://github.com/freerunnering/HomeKitBridge.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>HomeKitBridge.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/freerunnering/HomeKitBridge.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>HomeKitBridge</string>
+		</dict>
+	</array>
+</dict>
+</plist>
