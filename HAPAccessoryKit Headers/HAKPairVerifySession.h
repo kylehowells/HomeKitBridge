@@ -33,7 +33,7 @@
 - (long long)handlePairingSessionWriteRequest:(id)arg1;
 - (void)_resetState;
 - (id)_tlv8ResponseWithError:(unsigned char)arg1;
-- (id)init;
+
 
 @end
 

@@ -22,10 +22,10 @@
 - (void)setValue:(id)arg1 forHeaderField:(id)arg2;
 @property(retain, nonatomic) NSData *body;
 @property(readonly, nonatomic) unsigned long long statusCode;
-- (id)description;
+
 - (id)initWithRequest:(id)arg1 statusCode:(unsigned long long)arg2 statusDescription:(id)arg3 httpVersion:(id)arg4;
 - (id)initWithRequest:(id)arg1 statusCode:(unsigned long long)arg2;
-- (id)init;
+
 @property(retain, nonatomic) id JSONObject;
 @property(retain, nonatomic) NSData *tlv8Data;
 

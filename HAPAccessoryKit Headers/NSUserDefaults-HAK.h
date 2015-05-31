@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSUserDefaults.h"
+@import Foundation;
 
 @interface NSUserDefaults (HAK)
 + (id)defaultFrameworkDomain;

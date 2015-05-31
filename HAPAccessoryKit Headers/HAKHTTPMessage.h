@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @class NSData, NSDate, NSDictionary, NSString;
 
@@ -26,8 +26,7 @@
 @property(readonly, nonatomic) NSDictionary *allHeaderFields;
 - (void)appendData:(id)arg1;
 @property(readonly, nonatomic) BOOL isHeaderComplete;
-- (id)description;
-- (void)dealloc;
+
 @property(readonly, nonatomic) NSData *tlv8Data;
 @property(readonly, nonatomic) id JSONObject;
 

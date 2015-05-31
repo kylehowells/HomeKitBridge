@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @class NSMutableSet, NSObject<OS_dispatch_queue>;
 
@@ -13,7 +13,7 @@
     BOOL _loggingDisabled;
     BOOL _allowInternalLogging;
     unsigned long long _logLevel;
-    NSObject<OS_dispatch_queue> *_loggerQueue;
+    dispatch_queue_t_loggerQueue;
     struct __asl_object_s *_aslClient;
     NSMutableSet *_loggerFileHandles;
 }
@@ -24,7 +24,7 @@
 + (void)initialize;
 @property(retain, nonatomic) NSMutableSet *loggerFileHandles; // @synthesize loggerFileHandles=_loggerFileHandles;
 @property(setter=setASLClient:) struct __asl_object_s *aslClient; // @synthesize aslClient=_aslClient;
-@property(retain) NSObject<OS_dispatch_queue> *loggerQueue; // @synthesize loggerQueue=_loggerQueue;
+@property(retain) dispatch_queue_tloggerQueue; // @synthesize loggerQueue=_loggerQueue;
 @property(nonatomic) BOOL allowInternalLogging; // @synthesize allowInternalLogging=_allowInternalLogging;
 @property(nonatomic, getter=isLoggingDisabled) BOOL loggingDisabled; // @synthesize loggingDisabled=_loggingDisabled;
 @property(nonatomic) unsigned long long logLevel; // @synthesize logLevel=_logLevel;
@@ -33,8 +33,7 @@
 - (void)logWithLevel:(unsigned long long)arg1 message:(id)arg2;
 - (BOOL)addLogFile:(id)arg1 error:(id *)arg2;
 - (void)addDefaultFileLogger;
-- (void)dealloc;
-- (id)init;
+
 
 @end
 

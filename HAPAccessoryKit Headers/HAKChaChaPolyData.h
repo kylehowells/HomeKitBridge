@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @class NSData;
 
@@ -17,7 +17,7 @@
 
 @property(readonly, nonatomic) NSData *authTag;
 @property(readonly, nonatomic) NSData *encryptedData;
-- (id)description;
+
 - (id)initWithData:(id)arg1;
 
 @end

@@ -4,13 +4,12 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
+#import "HAKAccessoryDelegate-Protocol.h"
 #import "HAKServiceDelegate-Protocol.h"
-#import "NSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
 
-@class HAKInstanceIDPool, HAKService, NSArray, NSHashTable, NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSString;
+@class HAKInstanceIDPool, HAKService, NSArray, NSHashTable, NSMutableArray, NSNumber, NSString;
 
 @interface HAKAccessory : NSObject <HAKServiceDelegate, NSCopying, NSCoding>
 {
@@ -19,13 +18,13 @@
     NSNumber *_instanceID;
     HAKInstanceIDPool *_instanceIDPool;
     NSHashTable *_transportRefs;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    dispatch_queue_t _workQueue;
 }
 
 + (id)pairingUUID;
 + (id)accessoryInformationUUID;
 + (id)servicesToFilter;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(retain, nonatomic) NSHashTable *transportRefs; // @synthesize transportRefs=_transportRefs;
 @property(retain, nonatomic) HAKInstanceIDPool *instanceIDPool; // @synthesize instanceIDPool=_instanceIDPool;
 @property(retain, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
@@ -49,11 +48,11 @@
 - (void)_handleUpdatedService:(id)arg1;
 - (void)service:(id)arg1 didRemoveCharacteristic:(id)arg2;
 - (void)service:(id)arg1 didAddCharacteristic:(id)arg2;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+
+
+
 - (id)initWithAccessoryInformationService:(id)arg1 pairingService:(id)arg2;
-- (id)init;
+
 - (id)characteristicWithInstanceId:(unsigned long long)arg1;
 - (id)JSONObject;
 

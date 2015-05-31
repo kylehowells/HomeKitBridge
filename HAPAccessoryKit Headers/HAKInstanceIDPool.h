@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 #import "NSCopying-Protocol.h"
 
@@ -16,10 +16,10 @@
 + (id)instanceIDPoolWithInstanceID:(unsigned long long)arg1;
 + (id)instanceIDPool;
 @property(readonly, nonatomic) unsigned long long currentInstanceID; // @synthesize currentInstanceID=_currentInstanceID;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+
 - (id)instanceID;
 - (id)initWithInstanceID:(unsigned long long)arg1;
-- (id)init;
+
 
 @end
 

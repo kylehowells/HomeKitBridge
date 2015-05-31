@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @class NSData, NSString;
 
@@ -36,7 +36,6 @@
 - (id)attributes;
 - (BOOL)isEqual:(id)arg1;
 - (unsigned long long)hash;
-- (void)dealloc;
 - (id)initWithPublicKey:(id)arg1 privateKey:(id)arg2;
 - (id)initWithPrivateKey:(id)arg1;
 - (id)initWithPublicKey:(id)arg1;

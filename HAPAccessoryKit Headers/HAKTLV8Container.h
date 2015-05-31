@@ -4,10 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
-
-#import "NSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
+@import Foundation;
 
 @class NSMutableArray;
 
@@ -17,9 +14,9 @@
 }
 
 
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+
+
+
 - (id)numberForType:(unsigned char)arg1;
 - (void)setUnsignedLongLong:(unsigned long long)arg1 forType:(unsigned char)arg2;
 - (void)setUnsignedInt:(unsigned int)arg1 forType:(unsigned char)arg2;
@@ -34,9 +31,9 @@
 - (void)setVoidType:(unsigned char)arg1;
 - (id)serialize;
 - (void)removePacketsWithType:(unsigned char)arg1;
-- (id)description;
+
 - (id)initWithData:(id)arg1;
-- (id)init;
+
 
 @end
 

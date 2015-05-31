@@ -56,11 +56,6 @@
 - (void)netServiceDidPublish:(id)arg1;
 - (void)newConnectionWithHost:(id)arg1 inputStream:(id)arg2 outputStream:(id)arg3;
 - (void)connection:(id)arg1 didReceiveRequest:(id)arg2;
-- (id)initWithCoder:(id)arg1;
-- (void)dealloc;
-- (id)init;
-
-
 
 @end
 

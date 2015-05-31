@@ -20,7 +20,7 @@
 @property(readonly, nonatomic) unsigned long long bodyLength;
 @property(readonly, nonatomic) NSURL *url;
 @property(readonly, nonatomic) NSString *method;
-- (id)description;
+
 - (id)initWithConnection:(id)arg1;
 
 @end

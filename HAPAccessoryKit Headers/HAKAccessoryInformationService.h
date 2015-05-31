@@ -22,7 +22,7 @@
 - (void)removeCharacteristic:(id)arg1;
 - (id)_restrictedCharacteristicSet;
 - (id)initWithType:(id)arg1 isPrimary:(BOOL)arg2 characteristics:(id)arg3 includedServices:(id)arg4;
-- (id)init;
+
 
 @end
 

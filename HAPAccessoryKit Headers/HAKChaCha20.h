@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @interface HAKChaCha20 : NSObject
 {
@@ -17,7 +17,6 @@
 + (BOOL)isKeyValid:(id)arg1;
 - (id)decryptData:(id)arg1;
 - (id)encryptData:(id)arg1;
-- (void)dealloc;
 - (id)initWithKey:(id)arg1 nonce:(id)arg2;
 
 @end

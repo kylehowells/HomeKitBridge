@@ -6,12 +6,12 @@
 
 #import <Foundation/Foundation.h>
 
-@class HAKService, HAKUUID, HAKValueConstraints, NSArray, NSHashTable, NSNumber, NSObject<OS_dispatch_queue>, NSString;
+@class HAKService, HAKUUID, HAKValueConstraints, NSArray, NSHashTable, NSNumber,  NSString;
 
 @interface HAKCharacteristic : NSObject <NSCoding, NSCopying>
 {
     id _value;
-    id <HAKCharacteristicDelegate> _delegate;
+//    id <HAKCharacteristicDelegate> _delegate;
     HAKService *_service;
     HAKUUID *_type;
     NSNumber *_instanceID;
@@ -21,14 +21,14 @@
     unsigned long long _format;
     unsigned long long _unit;
     HAKValueConstraints *_constraints;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    dispatch_queue_t _workQueue;
     NSHashTable *_subscribedConnectionsTable;
 }
 
 + (id)stringForUnit:(unsigned long long)arg1;
 + (id)stringForFormat:(unsigned long long)arg1;
 @property(retain, nonatomic) NSHashTable *subscribedConnectionsTable; // @synthesize subscribedConnectionsTable=_subscribedConnectionsTable;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(copy, nonatomic) HAKValueConstraints *constraints; // @synthesize constraints=_constraints;
 @property(nonatomic) unsigned long long unit; // @synthesize unit=_unit;
 @property(readonly, nonatomic) unsigned long long format; // @synthesize format=_format;
@@ -38,7 +38,7 @@
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 @property(retain, nonatomic) HAKUUID *type; // @synthesize type=_type;
 @property(nonatomic) __weak HAKService *service; // @synthesize service=_service;
-@property(nonatomic) __weak id <HAKCharacteristicDelegate> delegate; // @synthesize delegate=_delegate;
+//@property(nonatomic) __weak id <HAKCharacteristicDelegate> delegate; // @synthesize delegate=_delegate;
 
 @property(copy, nonatomic) id value; // @synthesize value=_value;
 - (BOOL)_handleValueValidation:(id)arg1;

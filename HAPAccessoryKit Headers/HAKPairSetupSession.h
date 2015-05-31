@@ -45,7 +45,7 @@
 - (id)generateSecretKeyWithPublicKey:(id)arg1;
 @property(readonly, nonatomic) NSData *publicKey; // @synthesize publicKey=_publicKey;
 @property(readonly, nonatomic) NSData *salt; // @synthesize salt=_salt;
-- (id)init;
+
 
 @end
 

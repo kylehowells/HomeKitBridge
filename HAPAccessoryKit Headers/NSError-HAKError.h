@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSError.h"
+@import Foundation;
 
 @interface NSError (HAKError)
 + (id)errorWithCode:(long long)arg1 description:(id)arg2 suggestion:(id)arg3;

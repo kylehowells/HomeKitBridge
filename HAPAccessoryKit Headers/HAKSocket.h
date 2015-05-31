@@ -4,7 +4,7 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
 @interface HAKSocket : NSObject
 {
@@ -24,9 +24,8 @@
 - (void)scheduleInRunLoop:(id)arg1 forMode:(id)arg2;
 - (BOOL)_bindIPV6Socket;
 - (BOOL)_bindIPV4Socket;
-- (id)description;
-- (void)dealloc;
-- (id)init;
+
+
 - (id)initWithPort:(unsigned long long)arg1;
 
 @end

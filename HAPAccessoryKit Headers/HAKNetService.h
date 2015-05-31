@@ -6,16 +6,16 @@
 
 #import "NSNetService.h"
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class  NSString;
 
 @interface HAKNetService : NSNetService
 {
-    NSObject<OS_dispatch_queue> *_txtRecordQueue;
+    dispatch_queue_t_txtRecordQueue;
 }
 
 + (id)defaultTXTRecord;
 + (id)generateUniqueMACAddress;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *txtRecordQueue; // @synthesize txtRecordQueue=_txtRecordQueue;
+@property(retain, nonatomic) dispatch_queue_ttxtRecordQueue; // @synthesize txtRecordQueue=_txtRecordQueue;
 
 @property(nonatomic) unsigned char statusOptions;
 - (void)incrementStateNumber;

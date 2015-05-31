@@ -4,12 +4,10 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
-#import "NSCoding-Protocol.h"
-#import "NSCopying-Protocol.h"
 
-@class HAKAccessory, HAKUUID, NSArray, NSHashTable, NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSString;
+@class HAKAccessory, HAKUUID, NSArray, NSHashTable, NSMutableArray, NSNumber,  NSString;
 
 @interface HAKService : NSObject <NSCoding, NSCopying>
 {
@@ -20,12 +18,12 @@
     HAKAccessory *_accessory;
     HAKUUID *_type;
     NSNumber *_instanceID;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    dispatch_queue_t _workQueue;
 }
 
 + (id)_nameUUID;
 + (id)characteristicsToFilter;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(readonly, nonatomic, getter=isPrimary) BOOL primary; // @synthesize primary=_primary;
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;
 @property(retain, nonatomic) HAKUUID *type; // @synthesize type=_type;
@@ -46,13 +44,13 @@
 - (BOOL)_addCharacteristic:(id)arg1 error:(id *)arg2;
 - (void)addCharacteristic:(id)arg1;
 @property(readonly, copy, nonatomic) NSString *name;
-- (id)description;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
+
+
+
+
 - (id)initWithType:(id)arg1 isPrimary:(BOOL)arg2 name:(id)arg3 characteristics:(id)arg4 includedServices:(id)arg5;
 - (id)initWithType:(id)arg1 name:(id)arg2;
-- (id)init;
+
 - (id)JSONObject;
 - (id)cbMutableService;
 - (id)cbCharactersitics;

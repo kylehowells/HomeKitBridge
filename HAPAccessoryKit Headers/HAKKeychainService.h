@@ -4,21 +4,21 @@
  *     class-dump is Copyright (C) 1997-1998, 2000-2001, 2004-2011 by Steve Nygard.
  */
 
-#import "NSObject.h"
+@import Foundation;
 
-@class NSObject<OS_dispatch_queue>, NSString;
+@class  NSString;
 
 @interface HAKKeychainService : NSObject
 {
     struct OpaqueSecKeychainRef *_keychain;
     BOOL _authenticationDisabled;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    dispatch_queue_t _workQueue;
 }
 
 + (id)keychainURL;
 + (id)defaultKeychainService;
 @property(nonatomic, getter=isAuthenticationDisabled) BOOL authenticationDisabled; // @synthesize authenticationDisabled=_authenticationDisabled;
-@property(retain) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 
 - (void)_executePrivledgedKeychainBlock:(id)arg1;
 - (void)_executeKeychainBlock:(id)arg1;
@@ -40,8 +40,7 @@
 - (BOOL)removeKey:(id)arg1 error:(id *)arg2;
 - (int)_addKey:(id)arg1;
 - (BOOL)addKey:(id)arg1 error:(id *)arg2;
-- (void)dealloc;
-- (id)init;
+
 
 @end
 

@@ -6,22 +6,16 @@
 
 #import "HAKCharacteristic.h"
 
-@class NSObject<OS_dispatch_queue>, NSObject<OS_dispatch_source>;
-
 @interface HAKIdentifyCharacteristic : HAKCharacteristic
 {
     double _routineDuration;
-    NSObject<OS_dispatch_queue> *_workQueue;
     NSObject<OS_dispatch_source> *_routineDurationTimer;
 }
 
 @property(retain, nonatomic) NSObject<OS_dispatch_source> *routineDurationTimer; // @synthesize routineDurationTimer=_routineDurationTimer;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic) double routineDuration; // @synthesize routineDuration=_routineDuration;
 
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-- (void)dealloc;
 - (id)handleWriteRequest:(id)arg1;
 - (id)initWithType:(id)arg1 properties:(unsigned long long)arg2 format:(unsigned long long)arg3;
 

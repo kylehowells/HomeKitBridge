@@ -9,7 +9,7 @@
 #import "HAKAccessoryDelegate-Protocol.h"
 #import "HAKConnectionDelegate-Protocol.h"
 
-@class HAKAccessory, HAKAccessoryKeychainObject, HAKIdentifier, HAKInstanceIDPool, NSArray, NSMutableArray, NSNumber, NSObject<OS_dispatch_queue>, NSString;
+@class HAKAccessory, HAKAccessoryKeychainObject, HAKIdentifier, HAKInstanceIDPool, NSArray, NSMutableArray, NSNumber,  NSString;
 
 @interface HAKTransport : NSObject <HAKConnectionDelegate, HAKAccessoryDelegate, NSCopying, NSCoding>
 {
@@ -21,10 +21,10 @@
     BOOL _allowUnencryptedConnections;
     NSString *_password;
     HAKIdentifier *_identifier;
-    id <HAKTransportDelegate> _delegate;
+//    id <HAKTransportDelegate> _delegate;
     NSNumber *_configurationNumber;
     NSNumber *_stateNumber;
-    NSObject<OS_dispatch_queue> *_workQueue;
+    dispatch_queue_t _workQueue;
     HAKInstanceIDPool *_instanceIDPool;
     HAKAccessoryKeychainObject *_accessoryKey;
 }
@@ -35,11 +35,11 @@
 @property(retain, nonatomic) HAKAccessoryKeychainObject *accessoryKey; // @synthesize accessoryKey=_accessoryKey;
 @property(retain, nonatomic) HAKInstanceIDPool *instanceIDPool; // @synthesize instanceIDPool=_instanceIDPool;
 @property(readonly, nonatomic) BOOL allowUnencryptedConnections; // @synthesize allowUnencryptedConnections=_allowUnencryptedConnections;
-@property(retain, nonatomic) NSObject<OS_dispatch_queue> *workQueue; // @synthesize workQueue=_workQueue;
+@property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(nonatomic, getter=isPaired) BOOL paired; // @synthesize paired=_paired;
 @property(retain, nonatomic) NSNumber *stateNumber; // @synthesize stateNumber=_stateNumber;
 @property(retain, nonatomic) NSNumber *configurationNumber; // @synthesize configurationNumber=_configurationNumber;
-@property(nonatomic) __weak id <HAKTransportDelegate> delegate; // @synthesize delegate=_delegate;
+//@property(nonatomic) __weak id <HAKTransportDelegate> delegate; // @synthesize delegate=_delegate;
 @property(retain, nonatomic) NSArray *connections; // @synthesize connections=_connections;
 @property(retain, nonatomic) NSArray *pairings; // @synthesize pairings=_pairings;
 @property(retain, nonatomic) NSArray *accessories; // @synthesize accessories=_accessories;
@@ -80,17 +80,8 @@
 - (void)accessory:(id)arg1 didUpdateService:(id)arg2;
 - (void)accessory:(id)arg1 didRemoveService:(id)arg2;
 - (void)accessory:(id)arg1 didAddService:(id)arg2;
-- (void)encodeWithCoder:(id)arg1;
-- (id)initWithCoder:(id)arg1;
-- (id)copyWithZone:(struct _NSZone *)arg1;
-@property(readonly, copy) NSString *description;
-- (id)init;
-- (id)initWithTransportType:(unsigned long long)arg1;
 
-// Remaining properties
-@property(readonly, copy) NSString *debugDescription;
-@property(readonly) unsigned long long hash;
-@property(readonly) Class superclass;
+- (id)initWithTransportType:(unsigned long long)arg1;
 
 @end
 
