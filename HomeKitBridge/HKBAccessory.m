@@ -18,7 +18,7 @@
 	
 	HAKTransport *transport;
 }
-@synthesize accessory = accessory;
+@synthesize accessory = _accessory;
 
 +(NSDictionary*)defaultInformation{
 	return @{NameKey: @"Accessory", ModelKey: @"Accessory v1.0", ManufacturerKey: @"Kyle Tech"};
@@ -35,8 +35,7 @@
 
 -(instancetype)initWithInformation:(NSDictionary*)information{
 	if (self = [super init]) {
-		accessory = [[HAKAccessory alloc] init];
-		
+		_accessory = [[HAKAccessory alloc] init];
 		setupInformation = information;
 		[self setupServices]; // Subclass customisation point
 		[self activateAccessory];
@@ -81,16 +80,10 @@
 	
 	NSString *serialNumber = setupInformation[SerialNumberKey];
 	
-	
-	HAKAccessoryInformationService *infoService = [[HAKAccessoryInformationService alloc] init];
-	infoService.nameCharacteristic.value = name;
-	infoService.manufacturerCharacteristic.value = manufacturer;
-	infoService.modelCharacteristic.value = model;
-	infoService.serialNumberCharacteristic.value = serialNumber;
-	[self.accessory addService:infoService];
-	
-	NSLog(@"Name should be: %@", name);
-	NSLog(@"accessory.name: %@", accessory.name);
+	self.accessory.name = name;
+	self.accessory.serialNumber = serialNumber;
+	self.accessory.model = model;
+	self.accessory.manufacturer = manufacturer;
 }
 
 -(void)activateAccessory{
@@ -100,8 +93,7 @@
 	transport = [HKBTransportCache transportForSerialNumber:serialNumber];
 	[transport addAccessory:self.accessory];
 	
-	NSLog(@"Transport: %@", transport);
-	NSLog(@"Password: %@", transport.password);
+	NSLog(@"Transport: %@ - Password: %@", transport, transport.password);
 	
 	[transport start];
 }
