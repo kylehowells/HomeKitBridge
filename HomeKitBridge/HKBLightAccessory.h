@@ -51,13 +51,5 @@ typedef NS_OPTIONS(NSInteger, HKBLightCharacteristics) {
 @property (nonatomic, assign) id <HKBLightDelegate> delegate;
 @property (nonatomic, readonly) HKBLightCharacteristics characteristics;
 
-
-
-// Update HomeKit that these properties have changed externally from its commands.
--(void)updatePowerState:(BOOL)newPowerState;
--(void)updateBrightness:(NSInteger)brightness;
--(void)updateSaturation:(NSInteger)saturation;
--(void)updateHue:(NSInteger)hue;
-
 @end
 

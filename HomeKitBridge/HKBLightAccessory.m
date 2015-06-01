@@ -9,6 +9,16 @@
 #import "HKBLightAccessory.h"
 #import "HKBLightAccessory+Subclass.h"
 
+
+@interface HKBLightAccessory ()
+@property (nonatomic, readonly) HAKCharacteristic *powerCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *saturationCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *hueCharacteristic;
+@property (nonatomic, readonly) HAKCharacteristic *brightnessCharacteristic;
+@end
+
+
+
 @implementation HKBLightAccessory
 
 +(NSDictionary*)defaultInformation{

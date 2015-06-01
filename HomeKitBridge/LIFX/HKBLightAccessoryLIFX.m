@@ -72,12 +72,12 @@
 	// saturation;	//	[0, 1]	 -  [0, 100]
 	// brightness;	//	[0, 1]	 -  [0, 100]
 	
-	self.brightnessCharacteristic.value = @((self.lifxBulb.color.brightness * 100));
-	self.saturationCharacteristic.value = @(self.lifxBulb.color.saturation * 100);
-	self.hueCharacteristic.value = @(self.lifxBulb.color.hue);
+	[self updateBrightness:(self.lifxBulb.color.brightness * 100)];
+	[self updateSaturation:(self.lifxBulb.color.saturation * 100)];
+	[self updateHue:self.lifxBulb.color.hue];
 }
 -(void)updateHKPowerState{
-	self.powerCharacteristic.value = @((BOOL)(self.lifxBulb.powerState == LFXPowerStateOn));
+	[self updatePowerState:(self.lifxBulb.powerState == LFXPowerStateOn)];
 }
 
 

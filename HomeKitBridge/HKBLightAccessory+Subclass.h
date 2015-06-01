@@ -10,9 +10,19 @@
 @interface HKBLightAccessory ()
 @property (nonatomic, readonly) HAKService *lightBulbService;
 
-@property (nonatomic, readonly) HAKCharacteristic *powerCharacteristic;
-@property (nonatomic, readonly) HAKCharacteristic *saturationCharacteristic;
-@property (nonatomic, readonly) HAKCharacteristic *hueCharacteristic;
-@property (nonatomic, readonly) HAKCharacteristic *brightnessCharacteristic;
+
+// Update HomeKit that these properties have changed externally from its commands.
+
+/// Update HomeKit to a power change
+-(void)updatePowerState:(BOOL)newPowerState;
+
+/// Update HomeKit to a brightness change
+-(void)updateBrightness:(NSInteger)brightness;
+
+/// Update HomeKit to a saturation change
+-(void)updateSaturation:(NSInteger)saturation;
+
+/// Update HomeKit to a hue change
+-(void)updateHue:(NSInteger)hue;
 @end
 
