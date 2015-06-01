@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>EC167C07-5947-40D3-8CE6-EAE1FC515136</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>HomeKitBridge</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</key>
 		<string>https://github.com/freerunnering/HomeKitBridge.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HomeKitBridge.xcodeproj/project.xcworkspace</string>
+	<string>HomeKitBridge.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>11E1DB4F966C0884FA8B388E9017AF66E2A9052A</key>

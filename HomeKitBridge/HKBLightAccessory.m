@@ -16,7 +16,6 @@
 }
 
 
-
 #pragma mark - Setup
 
 -(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics{
@@ -29,30 +28,33 @@
 -(void)setupServices{
 	[super setupServices]; //IMPORTANT!
 	
-	HAKAccessoryInformationService *infomationService = self.accessory.accessoryInformationService;
+	HAKAccessoryInformationService *infomationService = (HAKAccessoryInformationService*)self.accessory.accessoryInformationService;
 	NSString *modelName = infomationService.modelCharacteristic.value;
 	NSUInteger count = self.accessory.services.count;
 	NSString *bulbName = [NSString stringWithFormat:@"LED Bulb %@ %lu", modelName, count];
 	NSLog(@"bulbName: %@", bulbName);
 	
 	// Setup the lightbulb
-	_lightBulbService = [[HAKService alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000043"] name:@"Light Control"];
+	_lightBulbService = [[HAKService alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000043"] name:@"Lightbulb"];
 	_powerCharacteristic = [_lightBulbService characteristicWithType:[[HAKUUID alloc] initWithUUIDString:@"00000025"]];
 	
 	// If supports controlling brightness
-	if (self.characteristics & HKBLightCharacteristicBrightness) {
+	if (self.characteristics & HKBLightCharacteristicBrightness)
+	{
 		_brightnessCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000008"]];
 		[_lightBulbService addCharacteristic:_brightnessCharacteristic];
 	}
 	
 	// If supports controlling Hue
-	if (self.characteristics & HKBLightCharacteristicHue) {
+	if (self.characteristics & HKBLightCharacteristicHue)
+	{
 		_hueCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000013"]];
 		[_lightBulbService addCharacteristic:_hueCharacteristic];
 	}
 
 	// If supports controlling Saturation
-	if (self.characteristics & HKBLightCharacteristicSaturation) {
+	if (self.characteristics & HKBLightCharacteristicSaturation)
+	{
 		_saturationCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"0000002F"]];
 		[_lightBulbService addCharacteristic:_saturationCharacteristic];
 	}

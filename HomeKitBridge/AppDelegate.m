@@ -28,8 +28,8 @@
 @property (nonatomic, strong) NSMutableDictionary *lights;
 
 
--(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)_accessory;
--(NSMenuItem*)menuItemForAccessory:(HKBAccessory*)_accessory;
+-(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)accessory;
+-(NSMenuItem*)menuItemForAccessory:(HKBAccessory*)accessory;
 @end
 
 
@@ -63,9 +63,9 @@
 
 
 
--(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)_accessory{
-	NSString *title = [_accessory.name stringByAppendingFormat:@" - PIN: %@", _accessory.passcode];
-	NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:title action:nil keyEquivalent:_accessory.name];
+-(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)accessory{
+	NSString *title = [accessory.name stringByAppendingFormat:@" - PIN: %@", accessory.passcode];
+	NSMenuItem *menuItem = [[NSMenuItem alloc] initWithTitle:title action:nil keyEquivalent:accessory.name];
 	return menuItem;
 }
 
@@ -94,13 +94,13 @@
 
 
 
+
 @implementation AppDelegate (LIFX)
 
 -(void)setupLIFXMonitoring{
 	// Everything above this point in the code is generalisable, for this point it is an example using the LIFX SDK.
 	[[[LFXClient sharedClient] localNetworkContext].allLightsCollection addLightCollectionObserver:self];
 }
-
 
 
 #pragma mark LFXLightCollectionObserver
