@@ -115,7 +115,7 @@
 
 
 
-#pragma mark - Update HomeKit to changes
+#pragma mark - Update HomeKit to external changes
 
 // - Conversion:	HomeKit
 // hue;			//  [0, 360]

@@ -70,12 +70,12 @@
 
 
 /**
- *  Add services to the accessory here. NOTE: Must call super.
+ *  Add services to the accessory here. NOTE: Must call super first!
  */
 -(void)setupServices NS_REQUIRES_SUPER;
 
 /**
- *  Updates received are sent to this method.
+ *  Updates received from HomeKit are sent to this method.
  *
  *  @param characteristic The HAKCharacteristic that changed.
  */

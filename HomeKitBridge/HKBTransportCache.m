@@ -22,14 +22,14 @@
 	}
 	
 	transport = [[HAKIPTransport alloc] init];
-	[transport password]; // This init's the pass without this it breaks
+	[transport password]; // This init's the pass without this it breaks by generating new ones on each app relaunch.
 	
 	[NSKeyedArchiver archiveRootObject:transport toFile:[cacheFile path]];
 	
 	return transport;
 }
 
-
+/// Folder path to store the caches/settings in
 +(NSURL*)cacheFolderURL{
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSURL *appFolder = [[fileManager URLForDirectory:NSApplicationSupportDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:YES error:nil] URLByAppendingPathComponent:[[NSBundle mainBundle] bundleIdentifier]];

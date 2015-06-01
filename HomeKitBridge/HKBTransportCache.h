@@ -11,5 +11,12 @@
 @class HAKTransport;
 
 @interface HKBTransportCache : NSObject
+/**
+ *  Creates and persists a HAKTransport for a given device.
+ *
+ *  @param serialNumber The unique serial number of the device.
+ *
+ *  @return A HAKTransport object for the device.
+ */
 +(HAKTransport*)transportForSerialNumber:(NSString*)serialNumber;
 @end
