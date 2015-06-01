@@ -16,9 +16,7 @@
 	NSString *filename = [serialNumber stringByAppendingString:@".plist"];
 	NSURL *cacheFile = [[self cacheFolderURL] URLByAppendingPathComponent:filename];
 	
-	HAKTransport *transport = nil;
-	
-	transport = [NSKeyedUnarchiver unarchiveObjectWithFile:[cacheFile path]];
+	HAKTransport *transport = [NSKeyedUnarchiver unarchiveObjectWithFile:[cacheFile path]];
 	if (transport) {
 		return transport;
 	}

@@ -39,7 +39,6 @@
 	_lightBulbService = [[HAKService alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000043"] name:@"Light Control"];
 	_powerCharacteristic = [_lightBulbService characteristicWithType:[[HAKUUID alloc] initWithUUIDString:@"00000025"]];
 	
-	
 	// If supports controlling brightness
 	if (self.characteristics & HKBLightCharacteristicBrightness) {
 		_brightnessCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000008"]];
@@ -69,16 +68,12 @@
 #pragma mark - HomeKit Notification
 
 -(void)characteristicDidUpdateValue:(HAKCharacteristic*)characteristic{
-	NSLog(@"-characteristicDidUpdateValue: %@<%@>", characteristic.value, [characteristic.value class]);
-	
 	if (characteristic == _powerCharacteristic)
 	{
-		NSLog(@"_powerCharacteristic");
 		[self.delegate setLight:self powerState:[characteristic.value boolValue]];
 	}
 	else if (characteristic == _brightnessCharacteristic)
 	{
-		NSLog(@"_brightnessCharacteristic");
 		NSInteger brightness = [characteristic.value integerValue];
 		
 		if ([self.delegate respondsToSelector:@selector(setLight:brightness:)]) {
@@ -87,7 +82,6 @@
 	}
 	else if (characteristic == _saturationCharacteristic)
 	{
-		NSLog(@"_saturationCharacteristic");
 		NSInteger saturation = [characteristic.value integerValue];
 		
 		if ([self.delegate respondsToSelector:@selector(setLight:saturation:)]) {
@@ -96,7 +90,6 @@
 	}
 	else if (characteristic == _hueCharacteristic)
 	{
-		NSLog(@"_saturationCharacteristic");
 		NSInteger hue = [characteristic.value integerValue];
 		
 		if ([self.delegate respondsToSelector:@selector(setLight:hue:)]) {

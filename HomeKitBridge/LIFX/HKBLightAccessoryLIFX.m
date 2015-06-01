@@ -41,6 +41,7 @@
 	if (self = [super initWithInformation:information andCharacteristics:lightAbilities]) {
 		self.lifxBulb = lightBulb;
 		[self updateHKColorValues];
+		[self updateHKPowerState];
 
 		[self.lifxBulb addLightObserver:self];
 		[super setDelegate:self];
@@ -74,7 +75,6 @@
 	self.brightnessCharacteristic.value = @((self.lifxBulb.color.brightness * 100));
 	self.saturationCharacteristic.value = @(self.lifxBulb.color.saturation * 100);
 	self.hueCharacteristic.value = @(self.lifxBulb.color.hue);
-	// TODO: Possible error point ^^^^^^^
 }
 -(void)updateHKPowerState{
 	self.powerCharacteristic.value = @((BOOL)(self.lifxBulb.powerState == LFXPowerStateOn));
@@ -137,7 +137,6 @@
 	
 	[lfxLight setColor:newColor];
 }
-
 
 
 

@@ -69,12 +69,12 @@
 	return menuItem;
 }
 
--(NSMenuItem*)menuItemForAccessory:(HKBAccessory*)_accessory{
+-(NSMenuItem*)menuItemForAccessory:(HKBAccessory*)accessory{
 	NSMenuItem *item = nil;
 	
 	for (NSMenuItem *menuItem in self.lightsMenu.itemArray) {
-		HKBAccessory *accessory = [menuItem representedObject];
-		if (accessory == _accessory) {
+		HKBAccessory *menuAccessory = [menuItem representedObject];
+		if (menuAccessory == accessory) {
 			item = menuItem;
 			break;
 		}
@@ -103,14 +103,13 @@
 
 
 
-
 #pragma mark LFXLightCollectionObserver
 
 -(void)lightCollection:(LFXLightCollection *)lightCollection didAddLight:(LFXLight *)light{
 	[self addLight:light];
 }
 -(void)lightCollection:(LFXLightCollection *)lightCollection didRemoveLight:(LFXLight *)light{
-	[self removeLight:light];
+	[self removeLight:light]; // TODO add this to -didBecomeUnAvailable as well
 }
 
 

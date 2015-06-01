@@ -19,7 +19,8 @@
 		C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */; };
 		C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */; };
 		C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C786FF201B1BB93900A6A354 /* HKBTransportCache.m */; };
-		C786FF231B1BD83E00A6A354 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; };
+		C786FF241B1BD9EB00A6A354 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; };
+		C786FF251B1BD9EB00A6A354 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C786FF251B1BD9EB00A6A354 /* LIFXKit.framework in CopyFiles */,
 				C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,7 +174,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C786FF231B1BD83E00A6A354 /* LIFXKit.framework in Frameworks */,
+				C786FF241B1BD9EB00A6A354 /* LIFXKit.framework in Frameworks */,
 				C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */,
 				C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */,
 				C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */,
