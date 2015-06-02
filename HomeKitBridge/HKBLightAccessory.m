@@ -172,4 +172,28 @@
 	_hueCharacteristic.value = @(hue);
 }
 
+
+
+
+
+
+#pragma mark - Commands
+
+-(void)setPowerState:(BOOL)powerState{
+	[self updateExternalPowerState:powerState];
+	[self updateHomeKitPowerState:powerState];
+}
+-(void)setBrightness:(NSInteger)brightness{
+	[self updateExternalBrightness:brightness];
+	[self updateHomeKitBrightness:brightness];
+}
+-(void)setSaturation:(NSInteger)saturation{
+	[self updateExternalSaturation:saturation];
+	[self updateHomeKitSaturation:saturation];
+}
+-(void)setHue:(NSInteger)hue{
+	[self updateExternalHue:hue];
+	[self updateHomeKitHue:hue];
+}
+
 @end
