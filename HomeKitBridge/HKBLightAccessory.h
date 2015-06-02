@@ -28,10 +28,10 @@
 /**
  *  What abilities the light has. (Note: Must have power state)
  */
-typedef NS_OPTIONS(NSInteger, HKBLightCharacteristics) {
-	HKBLightCharacteristicHue =			1 << 0,
-	HKBLightCharacteristicSaturation =	1 << 1,
-	HKBLightCharacteristicBrightness =	1 << 2
+typedef NS_OPTIONS(NSInteger, HKBLightCapabilities) {
+	HKBLightCapabilityHue =			1 << 0,
+	HKBLightCapabilitySaturation =	1 << 1,
+	HKBLightCapabilityBrightness =	1 << 2
 };
 
 
@@ -46,10 +46,10 @@ typedef NS_OPTIONS(NSInteger, HKBLightCharacteristics) {
  *  @param information Keys: "name", "serialNumber", "manufacturer", "model"
  *  @param characteristics The abilities the light has, an combo of: brightness, hue and saturation.
  */
--(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics;
+-(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)characteristics;
 
 @property (nonatomic, assign) id <HKBLightDelegate> delegate;
-@property (nonatomic, readonly) HKBLightCharacteristics characteristics;
+@property (nonatomic, readonly) HKBLightCapabilities characteristics;
 
 @end
 

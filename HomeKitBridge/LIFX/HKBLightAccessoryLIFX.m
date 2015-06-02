@@ -34,7 +34,7 @@
 
 -(instancetype)initWithLightBulb:(LFXLight*)lightBulb{
 	// Settings
-	HKBLightCharacteristics lightAbilities = (HKBLightCharacteristicBrightness | HKBLightCharacteristicHue | HKBLightCharacteristicSaturation);
+	HKBLightCapabilities lightAbilities = (HKBLightCapabilityBrightness | HKBLightCapabilityHue | HKBLightCapabilitySaturation);
 	NSDictionary *information = @{NameKey : lightBulb.label, SerialNumberKey : lightBulb.deviceID};
 	
 	// Create light

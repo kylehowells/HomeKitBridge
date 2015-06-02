@@ -28,7 +28,7 @@
 
 #pragma mark - Setup
 
--(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCharacteristics)characteristics{
+-(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)characteristics{
 	_characteristics = characteristics;
 	self = [super initWithInformation:information];
 	return self;
@@ -49,21 +49,21 @@
 	_powerCharacteristic = [_lightBulbService characteristicWithType:[[HAKUUID alloc] initWithUUIDString:@"00000025"]];
 	
 	// If supports controlling brightness
-	if (self.characteristics & HKBLightCharacteristicBrightness)
+	if (self.characteristics & HKBLightCapabilityBrightness)
 	{
 		_brightnessCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000008"]];
 		[_lightBulbService addCharacteristic:_brightnessCharacteristic];
 	}
 	
 	// If supports controlling Hue
-	if (self.characteristics & HKBLightCharacteristicHue)
+	if (self.characteristics & HKBLightCapabilityHue)
 	{
 		_hueCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000013"]];
 		[_lightBulbService addCharacteristic:_hueCharacteristic];
 	}
 
 	// If supports controlling Saturation
-	if (self.characteristics & HKBLightCharacteristicSaturation)
+	if (self.characteristics & HKBLightCapabilitySaturation)
 	{
 		_saturationCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"0000002F"]];
 		[_lightBulbService addCharacteristic:_saturationCharacteristic];
