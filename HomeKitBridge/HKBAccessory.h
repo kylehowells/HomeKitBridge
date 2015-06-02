@@ -45,9 +45,14 @@
 // Infomation
 
 /**
- *  The accessory name.
+ *  The accessories name.
  */
 @property (nonatomic, readonly) NSString *name;
+
+/**
+ *  The accessories serialNumber.
+ */
+@property (nonatomic, readonly) NSString *serialNumber;
 
 /**
  *  The passcode to connect to it

@@ -18,6 +18,9 @@
 		C7397D8819E978C200FF9EA3 /* HomeKitBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */; };
 		C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */; };
 		C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */; };
+		C78010821B1DF1C6005E9E96 /* HKBDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */; };
+		C78010851B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */; };
+		C78010891B1DFFBC005E9E96 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010881B1DFFBC005E9E96 /* NSArray+Map.m */; };
 		C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C786FF201B1BB93900A6A354 /* HKBTransportCache.m */; };
 		C786FF241B1BD9EB00A6A354 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; };
 		C786FF251B1BD9EB00A6A354 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -66,6 +69,12 @@
 		C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBAccessory.m; sourceTree = "<group>"; };
 		C7397E7E19E9859F00FF9EA3 /* HKBLightAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBLightAccessory.h; sourceTree = "<group>"; };
 		C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBLightAccessory.m; sourceTree = "<group>"; };
+		C78010801B1DF1C6005E9E96 /* HKBDiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBDiscoveryService.h; sourceTree = "<group>"; };
+		C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBDiscoveryService.m; sourceTree = "<group>"; };
+		C78010831B1DF93C005E9E96 /* HKBLIFXDiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBLIFXDiscoveryService.h; sourceTree = "<group>"; };
+		C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBLIFXDiscoveryService.m; sourceTree = "<group>"; };
+		C78010871B1DFFBC005E9E96 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
+		C78010881B1DFFBC005E9E96 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
 		C786FE631B1BAE2900A6A354 /* HAKAccessoryKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryKit.h; sourceTree = "<group>"; };
 		C786FEBE1B1BAE5900A6A354 /* CBPeripheralManagerDelegate-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBPeripheralManagerDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C786FEBF1B1BAE5900A6A354 /* CDStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
@@ -215,6 +224,7 @@
 				C7397D7519E978C100FF9EA3 /* AppDelegate.h */,
 				C7397D7619E978C100FF9EA3 /* AppDelegate.m */,
 				C7397E7919E9834800FF9EA3 /* HomeKit */,
+				C78010861B1DFF98005E9E96 /* Categories */,
 				C7397D7819E978C100FF9EA3 /* Images.xcassets */,
 				C7397D7A19E978C100FF9EA3 /* MainMenu.xib */,
 				C7397D7119E978C100FF9EA3 /* Supporting Files */,
@@ -365,16 +375,45 @@
 		C7397E7919E9834800FF9EA3 /* HomeKit */ = {
 			isa = PBXGroup;
 			children = (
+				C780107F1B1DE9E1005E9E96 /* Discovery */,
 				C786FF1F1B1BB93900A6A354 /* HKBTransportCache.h */,
 				C786FF201B1BB93900A6A354 /* HKBTransportCache.m */,
 				C7397E7A19E9849E00FF9EA3 /* HKBAccessory.h */,
 				C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */,
+				C780107E1B1DD60A005E9E96 /* Lights */,
+			);
+			name = HomeKit;
+			sourceTree = "<group>";
+		};
+		C780107E1B1DD60A005E9E96 /* Lights */ = {
+			isa = PBXGroup;
+			children = (
 				C78BEFE719EB6B1C0005278C /* HKBLightAccessory+Subclass.h */,
 				C7397E7E19E9859F00FF9EA3 /* HKBLightAccessory.h */,
 				C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */,
 				C78BEFE319EB681E0005278C /* LIFX */,
 			);
-			name = HomeKit;
+			name = Lights;
+			sourceTree = "<group>";
+		};
+		C780107F1B1DE9E1005E9E96 /* Discovery */ = {
+			isa = PBXGroup;
+			children = (
+				C78010801B1DF1C6005E9E96 /* HKBDiscoveryService.h */,
+				C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */,
+				C78010831B1DF93C005E9E96 /* HKBLIFXDiscoveryService.h */,
+				C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */,
+			);
+			name = Discovery;
+			sourceTree = "<group>";
+		};
+		C78010861B1DFF98005E9E96 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C78010871B1DFFBC005E9E96 /* NSArray+Map.h */,
+				C78010881B1DFFBC005E9E96 /* NSArray+Map.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		C78BEFE319EB681E0005278C /* LIFX */ = {
@@ -487,12 +526,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78010891B1DFFBC005E9E96 /* NSArray+Map.m in Sources */,
 				C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */,
 				C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */,
 				C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */,
 				C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */,
 				C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */,
+				C78010851B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m in Sources */,
 				C7397D7419E978C100FF9EA3 /* main.m in Sources */,
+				C78010821B1DF1C6005E9E96 /* HKBDiscoveryService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

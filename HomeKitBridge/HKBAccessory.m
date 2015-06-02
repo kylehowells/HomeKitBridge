@@ -113,6 +113,10 @@
 	return self.accessory.name;
 }
 
+-(NSString*)serialNumber{
+	return self.accessory.serialNumber;
+}
+
 -(NSString*)passcode{
 	return transport.password;
 }
