@@ -25,6 +25,6 @@
 
 
 // We are our own delegate in for this class
--(void)setDelegate:(id<HKBLightDelegate>)delegate NS_UNAVAILABLE;
+-(void)setDelegate:(id<HKBLightAccessoryDelegate>)delegate NS_UNAVAILABLE;
 
 @end

@@ -14,15 +14,15 @@
 // Update HomeKit that these properties have changed externally from its commands.
 
 /// Update HomeKit to a power change
--(void)updatePowerState:(BOOL)newPowerState;
+-(void)updateHomeKitPowerState:(BOOL)newPowerState;
 
 /// Update HomeKit to a brightness change
--(void)updateBrightness:(NSInteger)brightness;
+-(void)updateHomeKitBrightness:(NSInteger)brightness;
 
 /// Update HomeKit to a saturation change
--(void)updateSaturation:(NSInteger)saturation;
+-(void)updateHomeKitSaturation:(NSInteger)saturation;
 
 /// Update HomeKit to a hue change
--(void)updateHue:(NSInteger)hue;
+-(void)updateHomeKitHue:(NSInteger)hue;
 @end
 

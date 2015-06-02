@@ -28,8 +28,8 @@
 
 #pragma mark - Setup
 
--(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)characteristics{
-	_characteristics = characteristics;
+-(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)capabilities{
+	_capabilities = capabilities;
 	self = [super initWithInformation:information];
 	return self;
 }
@@ -49,21 +49,21 @@
 	_powerCharacteristic = [_lightBulbService characteristicWithType:[[HAKUUID alloc] initWithUUIDString:@"00000025"]];
 	
 	// If supports controlling brightness
-	if (self.characteristics & HKBLightCapabilityBrightness)
+	if (self.capabilities & HKBLightCapabilityBrightness)
 	{
 		_brightnessCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000008"]];
 		[_lightBulbService addCharacteristic:_brightnessCharacteristic];
 	}
 	
 	// If supports controlling Hue
-	if (self.characteristics & HKBLightCapabilityHue)
+	if (self.capabilities & HKBLightCapabilityHue)
 	{
 		_hueCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000013"]];
 		[_lightBulbService addCharacteristic:_hueCharacteristic];
 	}
 
 	// If supports controlling Saturation
-	if (self.characteristics & HKBLightCapabilitySaturation)
+	if (self.capabilities & HKBLightCapabilitySaturation)
 	{
 		_saturationCharacteristic = [[HAKCharacteristic alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"0000002F"]];
 		[_lightBulbService addCharacteristic:_saturationCharacteristic];
@@ -82,33 +82,45 @@
 -(void)characteristicDidUpdateValue:(HAKCharacteristic*)characteristic{
 	if (characteristic == _powerCharacteristic)
 	{
-		[self.delegate setLight:self powerState:[characteristic.value boolValue]];
+		[self updateExternalPowerState:[characteristic.value boolValue]];
 	}
 	else if (characteristic == _brightnessCharacteristic)
 	{
 		NSInteger brightness = [characteristic.value integerValue];
-		
-		if ([self.delegate respondsToSelector:@selector(setLight:brightness:)]) {
-			[self.delegate setLight:self brightness:brightness];
-		}
+		[self updateExternalBrightness:brightness];
 	}
 	else if (characteristic == _saturationCharacteristic)
 	{
 		NSInteger saturation = [characteristic.value integerValue];
-		
-		if ([self.delegate respondsToSelector:@selector(setLight:saturation:)]) {
-			[self.delegate setLight:self saturation:saturation];
-		}
+		[self updateExternalSaturation:saturation];
 	}
 	else if (characteristic == _hueCharacteristic)
 	{
 		NSInteger hue = [characteristic.value integerValue];
-		
-		if ([self.delegate respondsToSelector:@selector(setLight:hue:)]) {
-			[self.delegate setLight:self hue:hue];
-		}
+		[self updateExternalHue:hue];
 	}
 }
+
+
+-(void)updateExternalPowerState:(BOOL)powerState{
+	[self.delegate lightAccessory:self didChangePowerState:powerState];
+}
+-(void)updateExternalBrightness:(NSInteger)brightness{
+	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeBrightness:)]) {
+		[self.delegate lightAccessory:self didChangeBrightness:brightness];
+	}
+}
+-(void)updateExternalSaturation:(NSInteger)saturation{
+	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeSaturation:)]) {
+		[self.delegate lightAccessory:self didChangeSaturation:saturation];
+	}
+}
+-(void)updateExternalHue:(NSInteger)hue{
+	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeHue:)]) {
+		[self.delegate lightAccessory:self didChangeHue:hue];
+	}
+}
+
 
 
 
@@ -122,11 +134,11 @@
 // saturation;	//	[0, 100]
 // brightness;	//	[0, 100]
 
--(void)updatePowerState:(BOOL)newPowerState{
+-(void)updateHomeKitPowerState:(BOOL)newPowerState{
 	_powerCharacteristic.value = @(newPowerState);
 }
 
--(void)updateBrightness:(NSInteger)brightness{
+-(void)updateHomeKitBrightness:(NSInteger)brightness{
 	NSInteger min = 0;
 	NSInteger max = 100;
 	
@@ -138,7 +150,7 @@
 	_brightnessCharacteristic.value = @(brightness);
 }
 
--(void)updateSaturation:(NSInteger)saturation{
+-(void)updateHomeKitSaturation:(NSInteger)saturation{
 	NSInteger min = 0;
 	NSInteger max = 100;
 	
@@ -149,7 +161,7 @@
 	_saturationCharacteristic.value = @(saturation);
 }
 
--(void)updateHue:(NSInteger)hue{
+-(void)updateHomeKitHue:(NSInteger)hue{
 	NSInteger min = 0;
 	NSInteger max = 360;
 	

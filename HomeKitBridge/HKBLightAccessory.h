@@ -13,14 +13,14 @@
 
 
 
-@protocol HKBLightDelegate <NSObject>
+@protocol HKBLightAccessoryDelegate <NSObject>
 @required
--(void)setLight:(HKBLightAccessory*)light powerState:(BOOL)powerState;
+-(void)lightAccessory:(HKBLightAccessory*)light didChangePowerState:(BOOL)powerState;
 
 @optional
--(void)setLight:(HKBLightAccessory*)light brightness:(NSInteger)brightness; // 0-100
--(void)setLight:(HKBLightAccessory*)light saturation:(NSInteger)saturation; // 0-100
--(void)setLight:(HKBLightAccessory*)light hue:(NSInteger)hue; // 0-360
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeBrightness:(NSInteger)brightness; // 0-100
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeSaturation:(NSInteger)saturation; // 0-100
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeHue:(NSInteger)hue; // 0-360
 @end
 
 
@@ -46,10 +46,10 @@ typedef NS_OPTIONS(NSInteger, HKBLightCapabilities) {
  *  @param information Keys: "name", "serialNumber", "manufacturer", "model"
  *  @param characteristics The abilities the light has, an combo of: brightness, hue and saturation.
  */
--(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)characteristics;
+-(instancetype)initWithInformation:(NSDictionary*)information andCharacteristics:(HKBLightCapabilities)capabilities;
 
-@property (nonatomic, assign) id <HKBLightDelegate> delegate;
-@property (nonatomic, readonly) HKBLightCapabilities characteristics;
+@property (nonatomic, assign) id <HKBLightAccessoryDelegate> delegate;
+@property (nonatomic, readonly) HKBLightCapabilities capabilities;
 
 @end
 

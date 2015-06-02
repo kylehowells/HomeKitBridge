@@ -11,7 +11,7 @@
 #import <LIFXKit/LIFXKit.h>
 #import "HKBLightAccessory+Subclass.h"
 
-@interface HKBLightAccessoryLIFX () <HKBLightDelegate, LFXLightObserver>
+@interface HKBLightAccessoryLIFX () <HKBLightAccessoryDelegate, LFXLightObserver>
 @property (nonatomic, strong) LFXLight *lifxBulb;
 @end
 
@@ -72,12 +72,12 @@
 	// saturation;	//	[0, 1]	 -  [0, 100]
 	// brightness;	//	[0, 1]	 -  [0, 100]
 	
-	[self updateBrightness:(self.lifxBulb.color.brightness * 100)];
-	[self updateSaturation:(self.lifxBulb.color.saturation * 100)];
-	[self updateHue:self.lifxBulb.color.hue];
+	[self updateHomeKitBrightness:(self.lifxBulb.color.brightness * 100)];
+	[self updateHomeKitSaturation:(self.lifxBulb.color.saturation * 100)];
+	[self updateHomeKitHue:self.lifxBulb.color.hue];
 }
 -(void)updateHKPowerState{
-	[self updatePowerState:(self.lifxBulb.powerState == LFXPowerStateOn)];
+	[self updateHomeKitPowerState:(self.lifxBulb.powerState == LFXPowerStateOn)];
 }
 
 
@@ -102,14 +102,15 @@
 
 
 
-#pragma mark - HKBLightDelegate
 
--(void)setLight:(HKBLightAccessory *)light powerState:(BOOL)_powerState {
+#pragma mark - HKBLightAccessoryDelegate
+
+-(void)lightAccessory:(HKBLightAccessory*)light didChangePowerState:(BOOL)_powerState{
 	LFXPowerState powerState = _powerState ? LFXPowerStateOn : LFXPowerStateOff;
 	[self.lifxBulb setPowerState:powerState];
 }
 
--(void)setLight:(HKBLightAccessory *)light hue:(NSInteger)hue {
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeHue:(NSInteger)hue{
 	LFXLight *lfxLight = [self lifxBulb];
 	
 	LFXHSBKColor *currentColor = [lfxLight color];
@@ -117,7 +118,7 @@
 	
 	[lfxLight setColor:newColor];
 }
--(void)setLight:(HKBLightAccessory *)light brightness:(NSInteger)brightness {
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeBrightness:(NSInteger)brightness{
 	CGFloat _brightness = brightness * 0.01;
 	
 	LFXLight *lfxLight = self.lifxBulb;
@@ -127,7 +128,7 @@
 	
 	[lfxLight setColor:newColor];
 }
--(void)setLight:(HKBLightAccessory *)light saturation:(NSInteger)saturation {
+-(void)lightAccessory:(HKBLightAccessory*)light didChangeSaturation:(NSInteger)saturation{
 	CGFloat _saturation = saturation * 0.01;
 	
 	LFXLight *lfxLight = self.lifxBulb;
