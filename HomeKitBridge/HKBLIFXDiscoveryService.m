@@ -12,8 +12,9 @@
 #import "HKBLightAccessoryLIFX.h"
 
 
-@interface HKBLIFXDiscoveryService () <LFXLightCollectionObserver>
+@interface HKBLIFXDiscoveryService () <LFXLightCollectionObserver, HKBLightAccessoryDelegate>
 @property (nonatomic, strong) NSMutableDictionary *lightAccessories;
+@property (nonatomic, strong) NSMutableDictionary *accessoriesMenuItems;
 @end
 
 
@@ -22,6 +23,7 @@
 -(instancetype)init{
 	if (self = [super init]) {
 		self.lightAccessories = [NSMutableDictionary dictionary];
+		self.accessoriesMenuItems = [NSMutableDictionary dictionary];
 	}
 	return self;
 }
@@ -30,6 +32,13 @@
 -(NSString*)displayName{
 	return @"LIFX";
 }
+
+-(NSArray*)allAccesories{
+	return [[self.lightAccessories objectEnumerator] allObjects];
+}
+
+
+
 
 
 -(void)startDiscovering{
@@ -42,11 +51,6 @@
 	[super stopDiscovering];
 }
 
-
-
--(NSArray*)allAccesories{
-	return [[self.lightAccessories objectEnumerator] allObjects];
-}
 
 
 
@@ -66,6 +70,7 @@
 	
 	// Create light
 	HKBLightAccessoryLIFX *light = [[HKBLightAccessoryLIFX alloc] initWithLightBulb:lifxLight];
+	light.delegate = self;
 	
 	self.lightAccessories[lifxLight.deviceID] = light;
 	[self.delegate discoveryService:self didDiscoverAccessory:light];
@@ -80,4 +85,42 @@
 	[self.delegate discoveryService:self didLoseAccessory:light];
 }
 
+
+
+
+
+#pragma mark - NSMenuItem
+
+-(NSMenuItem*)createMenuItemForAccessory:(HKBLightAccessoryLIFX*)accessory{
+	NSMenuItem *item = [super createMenuItemForAccessory:accessory];
+	[item setTarget:self];
+	[item setAction:@selector(toggleLightAccessory:)];
+	
+	self.accessoriesMenuItems[accessory.serialNumber] = item;
+	
+	[self updateMenuItemState:item];
+	return item;
+}
+
+-(void)toggleLightAccessory:(NSMenuItem*)item{
+	HKBLightAccessoryLIFX *lightAccessory = item.representedObject;
+	lightAccessory.powerState = !lightAccessory.powerState;
+	[self updateMenuItemState:item];
+}
+
+-(void)updateMenuItemState:(NSMenuItem*)item{
+	HKBLightAccessoryLIFX *lightAccessory = item.representedObject;
+	item.state = lightAccessory.powerState ? NSOnState : NSOffState;
+}
+
+
+
+#pragma mark - HKBLightAccessoryDelegate
+
+-(void)lightAccessory:(HKBLightAccessory*)light didChangePowerState:(BOOL)powerState{
+	NSMenuItem *item = self.accessoriesMenuItems[light.serialNumber];
+	[self updateMenuItemState:item];
+}
+
 @end
+

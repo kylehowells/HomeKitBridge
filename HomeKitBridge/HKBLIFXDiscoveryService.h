@@ -7,7 +7,8 @@
 //
 
 #import "HKBDiscoveryService.h"
+#import "HKBLightAccessoryLIFX.h"
 
 @interface HKBLIFXDiscoveryService : HKBDiscoveryService
-
+-(NSMenuItem*)createMenuItemForAccessory:(HKBLightAccessoryLIFX*)accessory;
 @end
