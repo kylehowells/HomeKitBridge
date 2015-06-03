@@ -15,27 +15,17 @@
 		C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D7619E978C100FF9EA3 /* AppDelegate.m */; };
 		C7397D7919E978C100FF9EA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7397D7819E978C100FF9EA3 /* Images.xcassets */; };
 		C7397D7C19E978C100FF9EA3 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7397D7A19E978C100FF9EA3 /* MainMenu.xib */; };
-		C7397D8819E978C200FF9EA3 /* HomeKitBridgeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */; };
 		C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */; };
 		C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */; };
 		C78010821B1DF1C6005E9E96 /* HKBDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */; };
 		C78010891B1DFFBC005E9E96 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010881B1DFFBC005E9E96 /* NSArray+Map.m */; };
 		C780108D1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C780108C1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m */; };
-		C780108F1B1E836D005E9E96 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; };
 		C78010921B1E855F005E9E96 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010911B1E855F005E9E96 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C78010941B1E87AC005E9E96 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; };
+		C78010951B1E87AC005E9E96 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C786FF201B1BB93900A6A354 /* HKBTransportCache.m */; };
 		C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		C7397D8219E978C200FF9EA3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C7397D6619E978C100FF9EA3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C7397D6D19E978C100FF9EA3;
-			remoteInfo = HomeKitBridge;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C7397E8419E9FC6700FF9EA3 /* CopyFiles */ = {
@@ -44,6 +34,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C78010951B1E87AC005E9E96 /* LIFXKit.framework in CopyFiles */,
 				C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,9 +52,6 @@
 		C7397D7619E978C100FF9EA3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C7397D7819E978C100FF9EA3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7397D7B19E978C100FF9EA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		C7397D8119E978C200FF9EA3 /* HomeKitBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HomeKitBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7397D8619E978C200FF9EA3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeKitBridgeTests.m; sourceTree = "<group>"; };
 		C7397E7A19E9849E00FF9EA3 /* HKBAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBAccessory.h; sourceTree = "<group>"; };
 		C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBAccessory.m; sourceTree = "<group>"; };
 		C7397E7E19E9859F00FF9EA3 /* HKBLightAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBLightAccessory.h; sourceTree = "<group>"; };
@@ -184,17 +172,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C780108F1B1E836D005E9E96 /* LIFXKit.framework in Frameworks */,
 				C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */,
 				C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */,
+				C78010941B1E87AC005E9E96 /* LIFXKit.framework in Frameworks */,
 				C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C7397D7E19E978C200FF9EA3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,7 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				C7397D7019E978C100FF9EA3 /* HomeKitBridge */,
-				C7397D8419E978C200FF9EA3 /* HomeKitBridgeTests */,
 				C7397D6F19E978C100FF9EA3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -214,7 +194,6 @@
 			isa = PBXGroup;
 			children = (
 				C7397D6E19E978C100FF9EA3 /* HomeKitBridge.app */,
-				C7397D8119E978C200FF9EA3 /* HomeKitBridgeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -240,23 +219,6 @@
 				C7397D9119E97CE100FF9EA3 /* Frameworks */,
 				C7397D7219E978C100FF9EA3 /* Info.plist */,
 				C7397D7319E978C100FF9EA3 /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C7397D8419E978C200FF9EA3 /* HomeKitBridgeTests */ = {
-			isa = PBXGroup;
-			children = (
-				C7397D8719E978C200FF9EA3 /* HomeKitBridgeTests.m */,
-				C7397D8519E978C200FF9EA3 /* Supporting Files */,
-			);
-			path = HomeKitBridgeTests;
-			sourceTree = "<group>";
-		};
-		C7397D8519E978C200FF9EA3 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C7397D8619E978C200FF9EA3 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -458,24 +420,6 @@
 			productReference = C7397D6E19E978C100FF9EA3 /* HomeKitBridge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C7397D8019E978C200FF9EA3 /* HomeKitBridgeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C7397D8E19E978C200FF9EA3 /* Build configuration list for PBXNativeTarget "HomeKitBridgeTests" */;
-			buildPhases = (
-				C7397D7D19E978C200FF9EA3 /* Sources */,
-				C7397D7E19E978C200FF9EA3 /* Frameworks */,
-				C7397D7F19E978C200FF9EA3 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C7397D8319E978C200FF9EA3 /* PBXTargetDependency */,
-			);
-			name = HomeKitBridgeTests;
-			productName = HomeKitBridgeTests;
-			productReference = C7397D8119E978C200FF9EA3 /* HomeKitBridgeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -487,10 +431,6 @@
 				TargetAttributes = {
 					C7397D6D19E978C100FF9EA3 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					C7397D8019E978C200FF9EA3 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = C7397D6D19E978C100FF9EA3;
 					};
 				};
 			};
@@ -508,7 +448,6 @@
 			projectRoot = "";
 			targets = (
 				C7397D6D19E978C100FF9EA3 /* HomeKitBridge */,
-				C7397D8019E978C200FF9EA3 /* HomeKitBridgeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -520,13 +459,6 @@
 			files = (
 				C7397D7919E978C100FF9EA3 /* Images.xcassets in Resources */,
 				C7397D7C19E978C100FF9EA3 /* MainMenu.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C7397D7F19E978C200FF9EA3 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,23 +482,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C7397D7D19E978C200FF9EA3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C7397D8819E978C200FF9EA3 /* HomeKitBridgeTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C7397D8319E978C200FF9EA3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C7397D6D19E978C100FF9EA3 /* HomeKitBridge */;
-			targetProxy = C7397D8219E978C200FF9EA3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7397D7A19E978C100FF9EA3 /* MainMenu.xib */ = {
@@ -690,42 +606,6 @@
 			};
 			name = Release;
 		};
-		C7397D8F19E978C200FF9EA3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HomeKitBridgeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitBridge.app/Contents/MacOS/HomeKitBridge";
-			};
-			name = Debug;
-		};
-		C7397D9019E978C200FF9EA3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HomeKitBridgeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HomeKitBridge.app/Contents/MacOS/HomeKitBridge";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -743,15 +623,6 @@
 			buildConfigurations = (
 				C7397D8C19E978C200FF9EA3 /* Debug */,
 				C7397D8D19E978C200FF9EA3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C7397D8E19E978C200FF9EA3 /* Build configuration list for PBXNativeTarget "HomeKitBridgeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C7397D8F19E978C200FF9EA3 /* Debug */,
-				C7397D9019E978C200FF9EA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
