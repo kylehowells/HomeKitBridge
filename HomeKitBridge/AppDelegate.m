@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "LaunchAtLoginController.h"
 #import "HKBDiscoveryService.h"
 #import "NSArray+Map.h"
 
@@ -14,55 +15,68 @@
 
 @interface AppDelegate () <HKBDiscoveryServiceDelegate>
 @property (weak) IBOutlet NSWindow *window; // Window left in case I want to add UI at any point
-
-/// [HKBDiscoveryService]
-@property (nonatomic, strong) NSArray *discoveryServices;
-
-
-// Menu bar item
-@property (nonatomic, strong) NSStatusItem *statusItem;
-/// {service.name : NSMenu}
-@property (nonatomic, strong) NSMutableDictionary *serviceMenus;
-
-@property (nonatomic, strong) NSMutableDictionary *accessoryMenuItems;
 @end
 
 
 
 
-@implementation AppDelegate
+@implementation AppDelegate{
+	// [HKBDiscoveryService]
+	NSArray *discoveryServices;
+
+	// Menu bar item
+	NSStatusItem *statusItem;
+
+	// {service.name : NSMenu}
+	NSMutableDictionary *serviceMenus;
+	
+	NSMutableDictionary *accessoryMenuItems;
+	
+	LaunchAtLoginController *loginController;
+	NSMenuItem *autorunItem;
+}
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
 	// Create variables
-	self.serviceMenus = [NSMutableDictionary dictionary];
-	self.accessoryMenuItems = [NSMutableDictionary dictionary];
+	serviceMenus = [NSMutableDictionary dictionary];
+	accessoryMenuItems = [NSMutableDictionary dictionary];
 	
-	self.discoveryServices = [[HKBDiscoveryService allServices] mapObjectsUsingBlock:^id(Class class, NSUInteger index){
+	discoveryServices = [[HKBDiscoveryService allServices] mapObjectsUsingBlock:^id(Class class, NSUInteger index){
 		return [[class alloc] init];
 	}];
 	
+	loginController = [[LaunchAtLoginController alloc] init];
+	
 	
 	// Create status bar item
-	self.statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
-	[self.statusItem setTitle:@"HKB"]; // HKB = HomeKit Bridge
-	[self.statusItem setHighlightMode:YES];
-	self.statusItem.menu = [[NSMenu alloc] init];
+	statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
+	[statusItem setTitle:@"HKB"]; // HKB = HomeKit Bridge
+	[statusItem setHighlightMode:YES];
+	statusItem.menu = [[NSMenu alloc] init];
 	
 	
 	// Start Monitoring
-	for (HKBDiscoveryService *service in self.discoveryServices) {
+	for (HKBDiscoveryService *service in discoveryServices) {
 		NSMenuItem *serviceMenuItem = [[NSMenuItem alloc] init];
 		[serviceMenuItem setTitle:service.displayName];
 		
 		NSMenu *submenu = [[NSMenu alloc] initWithTitle:service.displayName];
 		[serviceMenuItem setSubmenu:submenu];
-		self.serviceMenus[service.displayName] = submenu;
+		serviceMenus[service.displayName] = submenu;
 		
-		[self.statusItem.menu addItem:serviceMenuItem];
+		[statusItem.menu addItem:serviceMenuItem];
 		
 		service.delegate = self;
 		[service startDiscovering];
 	}
+	
+	[statusItem.menu addItem:[NSMenuItem separatorItem]];
+	autorunItem = [[NSMenuItem alloc] initWithTitle:@"Launch at login" action:@selector(autoLaunchPressed) keyEquivalent:@""];
+	[self updateAutoLaunch];
+	
+	NSMenuItem *quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
+	[quitItem setTarget:[NSApplication sharedApplication]];
+	[statusItem.menu addItem:quitItem];
 }
 
 
@@ -72,22 +86,67 @@
 
 -(void)discoveryService:(HKBDiscoveryService *)service didDiscoverAccessory:(HKBAccessory *)accessory{
 	NSMenuItem *menuItem = [service createMenuItemForAccessory:accessory];
-	self.accessoryMenuItems[accessory.serialNumber] = menuItem;
+	accessoryMenuItems[accessory.serialNumber] = menuItem;
 	
-	NSMenu *menu = self.serviceMenus[service.displayName];
+	NSMenu *menu = serviceMenus[service.displayName];
 	
 	if ([menu.itemArray containsObject:menuItem] == NO) {
 		[menu addItem:menuItem];
 	}
 }
 -(void)discoveryService:(HKBDiscoveryService *)service didLoseAccessory:(HKBAccessory *)accessory{
-	NSMenuItem *menuItem = self.accessoryMenuItems[accessory.serialNumber];
+	NSMenuItem *menuItem = accessoryMenuItems[accessory.serialNumber];
 	
 	if (menuItem) {
-		NSMenu *menu = self.serviceMenus[service.displayName];
+		NSMenu *menu = serviceMenus[service.displayName];
 		[menu removeItem:menuItem];
 		
-		[self.accessoryMenuItems removeObjectForKey:accessory.serialNumber];
+		[accessoryMenuItems removeObjectForKey:accessory.serialNumber];
+	}
+}
+
+
+
+
+
+
+
+#pragma mark - Auto launch methods
+
+-(BOOL)autoLaunch{
+	id object = [[NSUserDefaults standardUserDefaults] objectForKey:@"AutoLaunch"];
+	return (object ? [object boolValue] : YES);
+}
+-(void)setAutoLaunch:(BOOL)autoLaunch{
+	[[NSUserDefaults standardUserDefaults] setBool:autoLaunch forKey:@"AutoLaunch"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+	
+	[self updateAutoLaunch];
+}
+
+-(void)updateAutoLaunch{
+	if ([self autoLaunch]) {
+		if (![loginController launchAtLogin]) {
+			[loginController setLaunchAtLogin:YES];
+		}
+		
+		[autorunItem setState:NSOnState];
+	}
+	else {
+		if ([loginController launchAtLogin]) {
+			[loginController setLaunchAtLogin:NO];
+		}
+		
+		[autorunItem setState:NSOffState];
+	}
+}
+
+-(void)autoLaunchPressed{
+	if (autorunItem.state == NSOnState) {
+		[self setAutoLaunch:NO];
+	}
+	else {
+		[self setAutoLaunch:YES];
 	}
 }
 
