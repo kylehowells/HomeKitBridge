@@ -19,11 +19,10 @@
 		C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7B19E9849E00FF9EA3 /* HKBAccessory.m */; };
 		C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */; };
 		C78010821B1DF1C6005E9E96 /* HKBDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */; };
-		C78010851B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */; };
 		C78010891B1DFFBC005E9E96 /* NSArray+Map.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010881B1DFFBC005E9E96 /* NSArray+Map.m */; };
+		C780108D1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m in Sources */ = {isa = PBXBuildFile; fileRef = C780108C1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m */; };
+		C780108F1B1E836D005E9E96 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; };
 		C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C786FF201B1BB93900A6A354 /* HKBTransportCache.m */; };
-		C786FF241B1BD9EB00A6A354 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; };
-		C786FF251B1BD9EB00A6A354 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C786FF221B1BD83E00A6A354 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */; };
 /* End PBXBuildFile section */
 
@@ -44,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C786FF251B1BD9EB00A6A354 /* LIFXKit.framework in CopyFiles */,
 				C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,10 +69,11 @@
 		C7397E7F19E9859F00FF9EA3 /* HKBLightAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBLightAccessory.m; sourceTree = "<group>"; };
 		C78010801B1DF1C6005E9E96 /* HKBDiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBDiscoveryService.h; sourceTree = "<group>"; };
 		C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBDiscoveryService.m; sourceTree = "<group>"; };
-		C78010831B1DF93C005E9E96 /* HKBLIFXDiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBLIFXDiscoveryService.h; sourceTree = "<group>"; };
-		C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBLIFXDiscoveryService.m; sourceTree = "<group>"; };
 		C78010871B1DFFBC005E9E96 /* NSArray+Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Map.h"; sourceTree = "<group>"; };
 		C78010881B1DFFBC005E9E96 /* NSArray+Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Map.m"; sourceTree = "<group>"; };
+		C780108B1B1E833D005E9E96 /* HKBLIFXDiscoveryService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKBLIFXDiscoveryService.h; path = LIFX/HKBLIFXDiscoveryService.h; sourceTree = "<group>"; };
+		C780108C1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKBLIFXDiscoveryService.m; path = LIFX/HKBLIFXDiscoveryService.m; sourceTree = "<group>"; };
+		C780108E1B1E836D005E9E96 /* LIFXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LIFXKit.framework; path = LIFX/LIFXKit.framework; sourceTree = "<group>"; };
 		C786FE631B1BAE2900A6A354 /* HAKAccessoryKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HAKAccessoryKit.h; sourceTree = "<group>"; };
 		C786FEBE1B1BAE5900A6A354 /* CBPeripheralManagerDelegate-Protocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CBPeripheralManagerDelegate-Protocol.h"; sourceTree = "<group>"; };
 		C786FEBF1B1BAE5900A6A354 /* CDStructures.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CDStructures.h; sourceTree = "<group>"; };
@@ -172,7 +171,6 @@
 		C786FF1E1B1BAE5900A6A354 /* NSUserDefaults-HAK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults-HAK.h"; sourceTree = "<group>"; };
 		C786FF1F1B1BB93900A6A354 /* HKBTransportCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HKBTransportCache.h; sourceTree = "<group>"; };
 		C786FF201B1BB93900A6A354 /* HKBTransportCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HKBTransportCache.m; sourceTree = "<group>"; };
-		C786FF221B1BD83E00A6A354 /* LIFXKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = LIFXKit.framework; sourceTree = "<group>"; };
 		C78BEFE419EB68660005278C /* HKBLightAccessoryLIFX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HKBLightAccessoryLIFX.h; path = LIFX/HKBLightAccessoryLIFX.h; sourceTree = "<group>"; };
 		C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HKBLightAccessoryLIFX.m; path = LIFX/HKBLightAccessoryLIFX.m; sourceTree = "<group>"; };
 		C78BEFE719EB6B1C0005278C /* HKBLightAccessory+Subclass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HKBLightAccessory+Subclass.h"; sourceTree = "<group>"; };
@@ -183,7 +181,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C786FF241B1BD9EB00A6A354 /* LIFXKit.framework in Frameworks */,
+				C780108F1B1E836D005E9E96 /* LIFXKit.framework in Frameworks */,
 				C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */,
 				C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */,
 				C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */,
@@ -401,8 +399,6 @@
 			children = (
 				C78010801B1DF1C6005E9E96 /* HKBDiscoveryService.h */,
 				C78010811B1DF1C6005E9E96 /* HKBDiscoveryService.m */,
-				C78010831B1DF93C005E9E96 /* HKBLIFXDiscoveryService.h */,
-				C78010841B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m */,
 			);
 			name = Discovery;
 			sourceTree = "<group>";
@@ -419,7 +415,9 @@
 		C78BEFE319EB681E0005278C /* LIFX */ = {
 			isa = PBXGroup;
 			children = (
-				C786FF221B1BD83E00A6A354 /* LIFXKit.framework */,
+				C780108E1B1E836D005E9E96 /* LIFXKit.framework */,
+				C780108B1B1E833D005E9E96 /* HKBLIFXDiscoveryService.h */,
+				C780108C1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m */,
 				C78BEFE419EB68660005278C /* HKBLightAccessoryLIFX.h */,
 				C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */,
 			);
@@ -529,10 +527,10 @@
 				C78010891B1DFFBC005E9E96 /* NSArray+Map.m in Sources */,
 				C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */,
 				C7397E8019E9859F00FF9EA3 /* HKBLightAccessory.m in Sources */,
+				C780108D1B1E833D005E9E96 /* HKBLIFXDiscoveryService.m in Sources */,
 				C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */,
 				C7397E7C19E9849E00FF9EA3 /* HKBAccessory.m in Sources */,
 				C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */,
-				C78010851B1DF93C005E9E96 /* HKBLIFXDiscoveryService.m in Sources */,
 				C7397D7419E978C100FF9EA3 /* main.m in Sources */,
 				C78010821B1DF1C6005E9E96 /* HKBDiscoveryService.m in Sources */,
 			);
@@ -653,6 +651,7 @@
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
 					"$(PROJECT_DIR)/HomeKitBridge",
+					"$(PROJECT_DIR)/HomeKitBridge/LIFX",
 				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -669,6 +668,7 @@
 					"$(inherited)",
 					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
 					"$(PROJECT_DIR)/HomeKitBridge",
+					"$(PROJECT_DIR)/HomeKitBridge/LIFX",
 				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
