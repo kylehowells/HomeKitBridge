@@ -72,6 +72,7 @@
 	
 	[statusItem.menu addItem:[NSMenuItem separatorItem]];
 	autorunItem = [[NSMenuItem alloc] initWithTitle:@"Launch at login" action:@selector(autoLaunchPressed) keyEquivalent:@""];
+	[statusItem.menu addItem:autorunItem];
 	[self updateAutoLaunch];
 	
 	NSMenuItem *quitItem = [[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(terminate:) keyEquivalent:@"q"];
