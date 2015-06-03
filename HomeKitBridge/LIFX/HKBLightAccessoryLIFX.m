@@ -80,9 +80,10 @@
 
 #pragma mark - LFXLightObserver
 
--(void)light:(LFXLight *)light didChangeLabel:(NSString *)label{
-	self.accessory.name = light.label;
-}
+// I choose not to bridge label=name as I have my LIFX bulbs and HomeKit bulbs named very differently
+//-(void)light:(LFXLight *)light didChangeLabel:(NSString *)label{
+//	self.accessory.name = light.label;
+//}
 -(void)light:(LFXLight *)light didChangeColor:(LFXHSBKColor *)color{
 	[self updateHKColorValues];
 }
@@ -127,9 +128,8 @@
 
 #pragma mark - Update LIFX API to HomeKit changes
 
--(void)updateExternalPowerState:(BOOL)_powerState{
-	LFXPowerState powerState = _powerState ? LFXPowerStateOn : LFXPowerStateOff;
-	[self.lifxBulb setPowerState:powerState];
+-(void)updateExternalPowerState:(BOOL)powerState{
+	[self.lifxBulb setPowerState:powerState ? LFXPowerStateOn : LFXPowerStateOff];
 }
 
 -(void)updateExternalBrightness:(NSInteger)brightness{
