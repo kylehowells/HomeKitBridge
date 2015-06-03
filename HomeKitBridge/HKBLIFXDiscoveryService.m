@@ -12,7 +12,7 @@
 #import "HKBLightAccessoryLIFX.h"
 
 
-@interface HKBLIFXDiscoveryService () <LFXLightCollectionObserver, HKBLightAccessoryDelegate>
+@interface HKBLIFXDiscoveryService () <LFXLightCollectionObserver, LFXLightObserver, HKBLightAccessoryDelegate>
 @property (nonatomic, strong) NSMutableDictionary *lightAccessories;
 @property (nonatomic, strong) NSMutableDictionary *accessoriesMenuItems;
 @end
@@ -55,18 +55,34 @@
 
 
 
-#pragma mark LFXLightCollectionObserver
+#pragma mark - LFXLightCollectionObserver
 
 -(void)lightCollection:(LFXLightCollection *)lightCollection didAddLight:(LFXLight *)light{
+	[light addLightObserver:self];
 	[self addLight:light];
 }
 -(void)lightCollection:(LFXLightCollection *)lightCollection didRemoveLight:(LFXLight *)light{
-	[self removeLight:light]; // TODO add this to -didBecomeUnAvailable as well
+	[self removeLight:light];
+	[light removeLightObserver:self];
+}
+
+#pragma mark LFXLightObserver
+
+-(void)light:(LFXLight *)light didChangeReachability:(LFXDeviceReachability)reachability{
+	if (reachability == LFXDeviceReachabilityReachable) {
+		[self addLight:light];
+	}
+	else {
+		[self removeLight:light];
+	}
 }
 
 
+
 -(void)addLight:(LFXLight*)lifxLight{
-	if (self.lightAccessories[lifxLight.deviceID] != nil) { return; }
+	if (self.lightAccessories[lifxLight.deviceID] != nil || lifxLight.reachability != LFXDeviceReachabilityReachable) {
+		return;
+	}
 	
 	// Create light
 	HKBLightAccessoryLIFX *light = [[HKBLightAccessoryLIFX alloc] initWithLightBulb:lifxLight];
