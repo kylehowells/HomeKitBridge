@@ -9,6 +9,38 @@
 
 @class HAKService, HAKUUID, HAKValueConstraints, NSArray, NSHashTable, NSNumber,  NSString;
 
+typedef NS_ENUM(NSUInteger, HAKCharacteristicFormat) {
+	HAKCharacteristicFormatNone,
+	HAKCharacteristicFormatBool,
+	HAKCharacteristicFormatInt,
+	HAKCharacteristicFormatUInt8,
+	HAKCharacteristicFormatUInt16,
+	HAKCharacteristicFormatUInt32,
+	HAKCharacteristicFormatUInt64,
+	HAKCharacteristicFormatFloat,
+	HAKCharacteristicFormatString,
+	HAKCharacteristicFormatDate,
+	HAKCharacteristicFormatTLV8,
+	HAKCharacteristicFormatData,
+	HAKCharacteristicFormatArray,
+	HAKCharacteristicFormatDictionary
+};
+
+typedef NS_ENUM(NSUInteger, HAKCharacteristicUnit) {
+	HAKCharacteristicUnitNone,
+	HAKCharacteristicUnitCelcius,
+	HAKCharacteristicUnitPercentage,
+	HAKCharacteristicUnitArcDegrees
+};
+
+typedef NS_OPTIONS(NSUInteger, HAKCharacteristicPermission) {
+	HAKCharacteristicPermissionReadable = 1 << 0,
+	HAKCharacteristicPermissionWritable = 1 << 1,
+	HAKCharacteristicPermissionUpdatable = 1 << 2,
+};
+
+
+
 @interface HAKCharacteristic : NSObject <NSCoding, NSCopying>
 {
     id _value;
@@ -31,9 +63,9 @@
 @property(retain, nonatomic) NSHashTable *subscribedConnectionsTable; // @synthesize subscribedConnectionsTable=_subscribedConnectionsTable;
 @property(retain, nonatomic) dispatch_queue_t workQueue; // @synthesize workQueue=_workQueue;
 @property(copy, nonatomic) HAKValueConstraints *constraints; // @synthesize constraints=_constraints;
-@property(nonatomic) unsigned long long unit; // @synthesize unit=_unit;
-@property(readonly, nonatomic) unsigned long long format; // @synthesize format=_format;
-@property(nonatomic) unsigned long long permissions; // @synthesize permissions=_permissions;
+@property(nonatomic) HAKCharacteristicUnit unit; // @synthesize unit=_unit;
+@property(readonly, nonatomic) HAKCharacteristicFormat format; // @synthesize format=_format;
+@property(nonatomic) HAKCharacteristicPermission permissions; // @synthesize permissions=_permissions;
 @property(readonly, nonatomic) unsigned long long properties; // @synthesize properties=_properties;
 @property(copy, nonatomic) NSString *manufacturerDescription; // @synthesize manufacturerDescription=_manufacturerDescription;
 @property(copy, nonatomic) NSNumber *instanceID; // @synthesize instanceID=_instanceID;

@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Kyle Howells. All rights reserved.
 //
 
+#import "HAKNumberConstraints.h"
 #import "HKBLightAccessoryLIFX.h"
 
 #import <LIFXKit/LIFXKit.h>
@@ -13,6 +14,8 @@
 
 @interface HKBLightAccessoryLIFX () <LFXLightObserver>
 @property (nonatomic, strong) LFXLight *lifxBulb;
+
+@property (nonatomic, strong) HAKCharacteristic *kelvinCharacteristic;
 @end
 
 
@@ -51,14 +54,26 @@
 
 
 // TODO: work out how to define custom characteristics and add the kelvin value of LIFX bulbs
-//-(void)setupServices{
-//	[super setupServices];
-//
-//	HAKIntegerCharacteristic *kelvin = [[HAKIntegerCharacteristic alloc] init];
-//	kelvin.minimumValue = [NSNumber numberWithInt:LFXHSBKColorMinKelvin];
-//	kelvin.maximumValue = [NSNumber numberWithInt:LFXHSBKColorMaxKelvin];
-//	[self.lightBulbService addCharacteristic:kelvin];
-//}
+-(void)setupServices{
+	[super setupServices];
+
+	_kelvinCharacteristic = [[HAKCharacteristic alloc] initWithType:[HAKUUID UUIDWithUUIDString:@"0836D660-26E5-4D17-A714-A15DB6EAC9A5"] properties:11 format:HAKCharacteristicFormatUInt16];
+	HAKNumberConstraints *kelvinConstraints = [[HAKNumberConstraints alloc] initWithMinimumValue:@(LFXHSBKColorMinKelvin) maximumValue:@(LFXHSBKColorMaxKelvin)];
+	_kelvinCharacteristic.constraints = kelvinConstraints;
+	
+	[self.lightBulbService addCharacteristic:_kelvinCharacteristic];
+}
+
+-(void)characteristicDidUpdateValue:(HAKCharacteristic*)characteristic
+{
+	[super characteristicDidUpdateValue:characteristic];
+	
+	if (characteristic == self.kelvinCharacteristic) {
+		[self updateExternalKelvin:[characteristic.value unsignedIntValue]];
+	}
+	
+	//if (characteristic.service == self.lightBulbService) {}
+}
 
 
 
@@ -82,6 +97,10 @@
 
 #pragma mark - Update HomeKit to LIFX values
 
+-(void)updateHKPowerState{
+	[self updateHomeKitPowerState:(self.lifxBulb.powerState == LFXPowerStateOn)];
+}
+
 -(void)updateHKColorValues{
 	// - Conversion:	LIFX		HomeKit
 	// hue;			//	[0, 360] -  [0, 360]
@@ -91,11 +110,17 @@
 	[self updateHomeKitBrightness:(self.lifxBulb.color.brightness * 100)];
 	[self updateHomeKitSaturation:(self.lifxBulb.color.saturation * 100)];
 	[self updateHomeKitHue:self.lifxBulb.color.hue];
-}
--(void)updateHKPowerState{
-	[self updateHomeKitPowerState:(self.lifxBulb.powerState == LFXPowerStateOn)];
+	
+	[self updateHomeKitKelvin:self.lifxBulb.color.kelvin];
 }
 
+-(void)updateHomeKitKelvin:(NSUInteger)kelvin{
+	HAKCharacteristic *characteristic = self.kelvinCharacteristic;
+	
+	if ([characteristic.constraints validateValue:@(kelvin)]) {
+		characteristic.value = @(kelvin);
+	}
+}
 
 
 
@@ -134,6 +159,15 @@
 	
 	LFXHSBKColor *currentColor = [lfxLight color];
 	LFXHSBKColor *newColor = [LFXHSBKColor colorWithHue:hue saturation:currentColor.saturation brightness:currentColor.brightness];
+	
+	[lfxLight setColor:newColor];
+}
+
+-(void)updateExternalKelvin:(uint16_t)kelvin{
+	LFXLight *lfxLight = [self lifxBulb];
+	
+	LFXHSBKColor *currentColor = [lfxLight color];
+	LFXHSBKColor *newColor = [LFXHSBKColor colorWithHue:currentColor.hue saturation:currentColor.saturation brightness:currentColor.brightness kelvin:kelvin];
 	
 	[lfxLight setColor:newColor];
 }
