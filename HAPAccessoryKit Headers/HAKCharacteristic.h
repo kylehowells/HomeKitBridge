@@ -5,6 +5,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "HAKValueConstraints.h"
 
 @class HAKService, HAKUUID, HAKValueConstraints, NSArray, NSHashTable, NSNumber,  NSString;
 
