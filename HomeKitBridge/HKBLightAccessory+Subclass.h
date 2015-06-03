@@ -24,5 +24,21 @@
 
 /// Update HomeKit to a hue change
 -(void)updateHomeKitHue:(NSInteger)hue;
+
+
+
+// Update the external API that these properties have changed in HomeKit.
+
+/// Update external API to a new power state
+-(void)updateExternalPowerState:(BOOL)powerState;
+
+/// Update external API to a new brightness
+-(void)updateExternalBrightness:(NSInteger)brightness;
+
+/// Update external API to a new saturation
+-(void)updateExternalSaturation:(NSInteger)saturation;
+
+/// Update external API to a new hue
+-(void)updateExternalHue:(NSInteger)hue;
 @end
 

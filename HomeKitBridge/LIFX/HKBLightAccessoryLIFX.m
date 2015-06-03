@@ -11,7 +11,7 @@
 #import <LIFXKit/LIFXKit.h>
 #import "HKBLightAccessory+Subclass.h"
 
-@interface HKBLightAccessoryLIFX () <HKBLightAccessoryDelegate, LFXLightObserver>
+@interface HKBLightAccessoryLIFX () <LFXLightObserver>
 @property (nonatomic, strong) LFXLight *lifxBulb;
 @end
 
@@ -44,7 +44,6 @@
 		[self updateHKPowerState];
 
 		[self.lifxBulb addLightObserver:self];
-		[super setDelegate:self];
 	}
 	
 	return self;
@@ -54,12 +53,29 @@
 // TODO: work out how to define custom characteristics and add the kelvin value of LIFX bulbs
 //-(void)setupServices{
 //	[super setupServices];
-//	
+//
 //	HAKIntegerCharacteristic *kelvin = [[HAKIntegerCharacteristic alloc] init];
 //	kelvin.minimumValue = [NSNumber numberWithInt:LFXHSBKColorMinKelvin];
 //	kelvin.maximumValue = [NSNumber numberWithInt:LFXHSBKColorMaxKelvin];
 //	[self.lightBulbService addCharacteristic:kelvin];
 //}
+
+
+
+
+#pragma mark - LFXLightObserver
+
+-(void)light:(LFXLight *)light didChangeLabel:(NSString *)label{
+	self.accessory.name = light.label;
+}
+-(void)light:(LFXLight *)light didChangeColor:(LFXHSBKColor *)color{
+	[self updateHKColorValues];
+}
+-(void)light:(LFXLight *)light didChangePowerState:(LFXPowerState)powerState{
+	[self updateHKPowerState];
+}
+
+
 
 
 
@@ -84,41 +100,14 @@
 
 
 
+#pragma mark - Update LIFX API to HomeKit changes
 
-#pragma mark - LFXLightObserver
-
--(void)light:(LFXLight *)light didChangeLabel:(NSString *)label{
-	self.accessory.name = light.label;
-}
--(void)light:(LFXLight *)light didChangeColor:(LFXHSBKColor *)color{
-	[self updateHKColorValues];
-}
--(void)light:(LFXLight *)light didChangePowerState:(LFXPowerState)powerState{
-	[self updateHKPowerState];
-}
-
-
-
-
-
-
-
-#pragma mark - HKBLightAccessoryDelegate
-
--(void)lightAccessory:(HKBLightAccessory*)light didChangePowerState:(BOOL)_powerState{
+-(void)updateExternalPowerState:(BOOL)_powerState{
 	LFXPowerState powerState = _powerState ? LFXPowerStateOn : LFXPowerStateOff;
 	[self.lifxBulb setPowerState:powerState];
 }
 
--(void)lightAccessory:(HKBLightAccessory*)light didChangeHue:(NSInteger)hue{
-	LFXLight *lfxLight = [self lifxBulb];
-	
-	LFXHSBKColor *currentColor = [lfxLight color];
-	LFXHSBKColor *newColor = [LFXHSBKColor colorWithHue:hue saturation:currentColor.saturation brightness:currentColor.brightness];
-	
-	[lfxLight setColor:newColor];
-}
--(void)lightAccessory:(HKBLightAccessory*)light didChangeBrightness:(NSInteger)brightness{
+-(void)updateExternalBrightness:(NSInteger)brightness{
 	CGFloat _brightness = brightness * 0.01;
 	
 	LFXLight *lfxLight = self.lifxBulb;
@@ -128,13 +117,23 @@
 	
 	[lfxLight setColor:newColor];
 }
--(void)lightAccessory:(HKBLightAccessory*)light didChangeSaturation:(NSInteger)saturation{
+
+-(void)updateExternalSaturation:(NSInteger)saturation{
 	CGFloat _saturation = saturation * 0.01;
 	
 	LFXLight *lfxLight = self.lifxBulb;
 	
 	LFXHSBKColor *currentColor = [lfxLight color];
 	LFXHSBKColor *newColor = [LFXHSBKColor colorWithHue:currentColor.hue saturation:_saturation brightness:currentColor.brightness];
+	
+	[lfxLight setColor:newColor];
+}
+
+-(void)updateExternalHue:(NSInteger)hue{
+	LFXLight *lfxLight = [self lifxBulb];
+	
+	LFXHSBKColor *currentColor = [lfxLight color];
+	LFXHSBKColor *newColor = [LFXHSBKColor colorWithHue:hue saturation:currentColor.saturation brightness:currentColor.brightness];
 	
 	[lfxLight setColor:newColor];
 }

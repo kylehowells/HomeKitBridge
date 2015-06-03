@@ -102,24 +102,56 @@
 }
 
 
--(void)updateExternalPowerState:(BOOL)powerState{
-	[self.delegate lightAccessory:self didChangePowerState:powerState];
+
+
+#pragma mark - Delegate methods
+
+-(void)notifyDelegateOfPowerChange{
+	[self.delegate lightAccessory:self didChangePowerState:self.powerState];
 }
--(void)updateExternalBrightness:(NSInteger)brightness{
+-(void)notifyDelegateOfBrightnessChange{
 	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeBrightness:)]) {
-		[self.delegate lightAccessory:self didChangeBrightness:brightness];
+		[self.delegate lightAccessory:self didChangeBrightness:self.brightness];
 	}
 }
--(void)updateExternalSaturation:(NSInteger)saturation{
+-(void)notifyDelegateOfSaturationChange{
 	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeSaturation:)]) {
-		[self.delegate lightAccessory:self didChangeSaturation:saturation];
+		[self.delegate lightAccessory:self didChangeSaturation:self.saturation];
 	}
 }
--(void)updateExternalHue:(NSInteger)hue{
+-(void)notifyDelegateOfHueChange{
 	if ([self.delegate respondsToSelector:@selector(lightAccessory:didChangeHue:)]) {
-		[self.delegate lightAccessory:self didChangeHue:hue];
+		[self.delegate lightAccessory:self didChangeHue:self.hue];
 	}
 }
+
+
+
+
+#pragma mark - Update external API to HomeKit changes
+
+-(void)updateExternalPowerState:(BOOL)powerState
+{
+	// Do nothing, implement in subclass
+	[self notifyDelegateOfPowerChange];
+}
+-(void)updateExternalBrightness:(NSInteger)brightness
+{
+	// Do nothing, implement in subclass
+	[self notifyDelegateOfBrightnessChange];
+}
+-(void)updateExternalSaturation:(NSInteger)saturation
+{
+	// Do nothing, implement in subclass
+	[self notifyDelegateOfSaturationChange];
+}
+-(void)updateExternalHue:(NSInteger)hue
+{
+	// Do nothing, implement in subclass
+	[self notifyDelegateOfHueChange];
+}
+
+
 
 
 
@@ -136,6 +168,8 @@
 
 -(void)updateHomeKitPowerState:(BOOL)newPowerState{
 	_powerCharacteristic.value = @(newPowerState);
+	
+	[self notifyDelegateOfPowerChange];
 }
 
 -(void)updateHomeKitBrightness:(NSInteger)brightness{
@@ -148,6 +182,8 @@
 	
 	// Set it
 	_brightnessCharacteristic.value = @(brightness);
+	
+	[self notifyDelegateOfBrightnessChange];
 }
 
 -(void)updateHomeKitSaturation:(NSInteger)saturation{
@@ -159,6 +195,8 @@
 	saturation = MAX(min, saturation);
 	
 	_saturationCharacteristic.value = @(saturation);
+	
+	[self notifyDelegateOfSaturationChange];
 }
 
 -(void)updateHomeKitHue:(NSInteger)hue{
@@ -170,6 +208,8 @@
 	hue = MAX(min, hue);
 	
 	_hueCharacteristic.value = @(hue);
+	
+	[self notifyDelegateOfHueChange];
 }
 
 
@@ -179,17 +219,33 @@
 
 #pragma mark - Commands
 
+-(BOOL)powerState{
+	return [self.powerCharacteristic.value boolValue];
+}
 -(void)setPowerState:(BOOL)powerState{
 	[self updateExternalPowerState:powerState];
 	[self updateHomeKitPowerState:powerState];
+	// TODO: This calls the delegate twice, need to think of a fix
+}
+
+-(NSInteger)brightness{
+	return [self.brightnessCharacteristic.value integerValue];
 }
 -(void)setBrightness:(NSInteger)brightness{
 	[self updateExternalBrightness:brightness];
 	[self updateHomeKitBrightness:brightness];
 }
+
+-(NSInteger)saturation{
+	return [self.saturationCharacteristic.value integerValue];
+}
 -(void)setSaturation:(NSInteger)saturation{
 	[self updateExternalSaturation:saturation];
 	[self updateHomeKitSaturation:saturation];
+}
+
+-(NSInteger)hue{
+	return [self.hueCharacteristic.value integerValue];
 }
 -(void)setHue:(NSInteger)hue{
 	[self updateExternalHue:hue];

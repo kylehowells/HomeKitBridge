@@ -23,8 +23,4 @@
  */
 -(instancetype)initWithLightBulb:(LFXLight*)lightBulb;
 
-
-// We are our own delegate in for this class
--(void)setDelegate:(id<HKBLightAccessoryDelegate>)delegate NS_UNAVAILABLE;
-
 @end

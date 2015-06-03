@@ -56,30 +56,38 @@ typedef NS_OPTIONS(NSInteger, HKBLightCapabilities) {
 #pragma mark Commands
 
 /**
- *  Command the accessory to change its power state (effects both externally bridged accessory and HomeKit)
+ *  Set: Command the accessory to change its power state (effects both externally bridged accessory and HomeKit)
+ *
+ *  Get: Returns the HomeKit API's current value
  */
--(void)setPowerState:(BOOL)powerState;
+@property (nonatomic, assign) BOOL powerState;
 
 /**
- *  Command the accessory to change brightness (effects both HomeKit state and external API's state)
+ *  Set: Command the accessory to change brightness (effects both HomeKit state and external API's state)
  *
- *  @param brightness 0-100
+ *  Get: Returns the HomeKit API's current value
+ *
+ *  Range: brightness 0-100
  */
--(void)setBrightness:(NSInteger)brightness;
+@property (nonatomic, assign) NSInteger brightness;
 
 /**
- *  Command the accessory to change saturation (effects both HomeKit state and external API's state)
+ *  Set: Command the accessory to change saturation (effects both HomeKit state and external API's state)
  *
- *  @param saturation 0-100
+ *  Get: Returns the HomeKit API's current value
+ *
+ *  Range: saturation 0-100
  */
--(void)setSaturation:(NSInteger)saturation;
+@property (nonatomic, assign) NSInteger saturation;
 
 /**
- *  Command the accessory to change hue (effects both HomeKit state and external API's state)
+ *  Set: Command the accessory to change hue (effects both HomeKit state and external API's state)
  *
- *  @param hue 0-360
+ *  Get: Returns the HomeKit API's current value
+ *
+ *  Range: 0-360
  */
--(void)setHue:(NSInteger)hue;
+@property (nonatomic, assign) NSInteger hue;
 
 @end
 
