@@ -38,12 +38,6 @@
 -(void)setupServices{
 	[super setupServices]; //IMPORTANT!
 	
-	HAKAccessoryInformationService *infomationService = (HAKAccessoryInformationService*)self.accessory.accessoryInformationService;
-	NSString *modelName = infomationService.modelCharacteristic.value;
-	NSUInteger count = self.accessory.services.count;
-	NSString *bulbName = [NSString stringWithFormat:@"LED Bulb %@ %lu", modelName, count];
-	NSLog(@"bulbName: %@", bulbName);
-	
 	// Setup the lightbulb
 	_lightBulbService = [[HAKService alloc] initWithType:[[HAKUUID alloc] initWithUUIDString:@"00000043"] name:@"Lightbulb"];
 	_powerCharacteristic = [_lightBulbService characteristicWithType:[[HAKUUID alloc] initWithUUIDString:@"00000025"]];
@@ -173,43 +167,36 @@
 }
 
 -(void)updateHomeKitBrightness:(NSInteger)brightness{
-	NSInteger min = 0;
-	NSInteger max = 100;
+	HAKCharacteristic *characteristic = _brightnessCharacteristic;
 	
-	// Cap to min and max
-	brightness = MIN(max, brightness);
-	brightness = MAX(min, brightness);
-	
-	// Set it
-	_brightnessCharacteristic.value = @(brightness);
-	
-	[self notifyDelegateOfBrightnessChange];
+	if ([characteristic.constraints validateValue:@(brightness)])
+	{
+		characteristic.value = @(brightness);
+		
+		[self notifyDelegateOfBrightnessChange];
+	}
 }
 
 -(void)updateHomeKitSaturation:(NSInteger)saturation{
-	NSInteger min = 0;
-	NSInteger max = 100;
+	HAKCharacteristic *characteristic = _saturationCharacteristic;
 	
-	// Cap to min and max
-	saturation = MIN(max, saturation);
-	saturation = MAX(min, saturation);
-	
-	_saturationCharacteristic.value = @(saturation);
-	
-	[self notifyDelegateOfSaturationChange];
+	if ([characteristic.constraints validateValue:@(saturation)])
+	{
+		characteristic.value = @(saturation);
+		
+		[self notifyDelegateOfSaturationChange];
+	}
 }
 
 -(void)updateHomeKitHue:(NSInteger)hue{
-	NSInteger min = 0;
-	NSInteger max = 360;
+	HAKCharacteristic *characteristic = _hueCharacteristic;
 	
-	// Cap to min and max
-	hue = MIN(max, hue);
-	hue = MAX(min, hue);
-	
-	_hueCharacteristic.value = @(hue);
-	
-	[self notifyDelegateOfHueChange];
+	if ([characteristic.constraints validateValue:@(hue)])
+	{
+		characteristic.value = @(hue);
+		
+		[self notifyDelegateOfHueChange];
+	}
 }
 
 
