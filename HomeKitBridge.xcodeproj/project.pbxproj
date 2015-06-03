@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6A619EA104B00D3D2E3 /* Cocoa.framework */; };
 		C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6A719EA104B00D3D2E3 /* Foundation.framework */; };
-		C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; };
-		C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C7397D7419E978C100FF9EA3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D7319E978C100FF9EA3 /* main.m */; };
 		C7397D7719E978C100FF9EA3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7397D7619E978C100FF9EA3 /* AppDelegate.m */; };
 		C7397D7919E978C100FF9EA3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7397D7819E978C100FF9EA3 /* Images.xcassets */; };
@@ -23,6 +21,8 @@
 		C78010921B1E855F005E9E96 /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = C78010911B1E855F005E9E96 /* LaunchAtLoginController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C78010941B1E87AC005E9E96 /* LIFXKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; };
 		C78010951B1E87AC005E9E96 /* LIFXKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C780108E1B1E836D005E9E96 /* LIFXKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C78010991B1E88A8005E9E96 /* HAPAccessoryKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; };
+		C780109A1B1E88A8005E9E96 /* HAPAccessoryKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C734C6AA19EA10AC00D3D2E3 /* HAPAccessoryKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C786FF211B1BB93900A6A354 /* HKBTransportCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C786FF201B1BB93900A6A354 /* HKBTransportCache.m */; };
 		C78BEFE619EB68660005278C /* HKBLightAccessoryLIFX.m in Sources */ = {isa = PBXBuildFile; fileRef = C78BEFE519EB68660005278C /* HKBLightAccessoryLIFX.m */; };
 /* End PBXBuildFile section */
@@ -34,8 +34,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C780109A1B1E88A8005E9E96 /* HAPAccessoryKit.framework in CopyFiles */,
 				C78010951B1E87AC005E9E96 /* LIFXKit.framework in CopyFiles */,
-				C734C6AC19EA12EE00D3D2E3 /* HAPAccessoryKit.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,8 +174,8 @@
 			files = (
 				C734C6A819EA104B00D3D2E3 /* Cocoa.framework in Frameworks */,
 				C734C6A919EA104B00D3D2E3 /* Foundation.framework in Frameworks */,
+				C78010991B1E88A8005E9E96 /* HAPAccessoryKit.framework in Frameworks */,
 				C78010941B1E87AC005E9E96 /* LIFXKit.framework in Frameworks */,
-				C734C6AB19EA10AC00D3D2E3 /* HAPAccessoryKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +582,9 @@
 					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
 					"$(PROJECT_DIR)/HomeKitBridge",
 					"$(PROJECT_DIR)/HomeKitBridge/LIFX",
+					"$(SYSTEM_APPS_DIR)/HomeKit",
+					Accessory,
+					Simulator.app/Contents/Frameworks,
 				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -599,6 +602,9 @@
 					"$(SYSTEM_APPS_DIR)/HomeKit\\ Accessory\\ Simulator.app/Contents/Frameworks",
 					"$(PROJECT_DIR)/HomeKitBridge",
 					"$(PROJECT_DIR)/HomeKitBridge/LIFX",
+					"$(SYSTEM_APPS_DIR)/HomeKit",
+					Accessory,
+					Simulator.app/Contents/Frameworks,
 				);
 				INFOPLIST_FILE = HomeKitBridge/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
