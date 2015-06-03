@@ -68,26 +68,12 @@
 
 
 
--(NSMenuItem*)menuItemForAccessory:(HKBAccessory*)accessory{
-	NSMenuItem *item = self.accessoryMenuItems[accessory.serialNumber];
-	if (item == nil) {
-		NSString *title = [accessory.name stringByAppendingFormat:@" - PIN: %@", accessory.passcode];
-		item = [[NSMenuItem alloc] initWithTitle:title action:nil keyEquivalent:accessory.name];
-		item.enabled = NO;
-		
-		item.representedObject = accessory;
-		self.accessoryMenuItems[accessory.serialNumber] = item;
-	}
-	return item;
-}
-
-
-
-
 #pragma mark - HKBDiscoveryServiceDelegate
 
 -(void)discoveryService:(HKBDiscoveryService *)service didDiscoverAccessory:(HKBAccessory *)accessory{
-	NSMenuItem *menuItem = [self menuItemForAccessory:accessory];
+	NSMenuItem *menuItem = [service createMenuItemForAccessory:accessory];
+	self.accessoryMenuItems[accessory.serialNumber] = menuItem;
+	
 	NSMenu *menu = self.serviceMenus[service.displayName];
 	
 	if ([menu.itemArray containsObject:menuItem] == NO) {

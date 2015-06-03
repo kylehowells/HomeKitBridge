@@ -81,5 +81,16 @@ NSArray *ClassGetSubclasses(Class parentClass);
 	return nil;
 }
 
+
+
+
+
+-(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)accessory{
+	NSString *title = [accessory.name stringByAppendingFormat:@" - PIN: %@", accessory.passcode];
+	NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title action:nil keyEquivalent:accessory.name];
+	item.representedObject = accessory;
+	return item;
+}
+
 @end
 

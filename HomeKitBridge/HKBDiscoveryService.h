@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AppKit/AppKit.h>
 #import "HKBAccessory.h"
 
 
@@ -49,4 +50,8 @@
 /// Stop discovering accessories
 -(void)stopDiscovering NS_REQUIRES_SUPER; // Sub to be overriden
 
+
+-(NSMenuItem*)createMenuItemForAccessory:(HKBAccessory*)accessory;
+
 @end
+
