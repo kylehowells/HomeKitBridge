@@ -49,7 +49,7 @@ Support other device types besides lights.
 Documentation (I'll write some soon (I mean it this time)).
 For now just read "HKBAccessory.h" for an overview. Look in AppDelegate.m to see how to use the API once everything is in place (very simple). Look at "HKBLightAccessory" to see an example of how to write an accessory subclass.
 
-The HKBLightAccessory class is abstract and doesn't link to any devices API directly. It is designed to be subclassed so that you can easily bridge different light bulbs SDKsto HomeKit. 
+The HKBLightAccessory class is abstract and doesn't link to any devices API directly. It is designed to be subclassed so that you can easily bridge different light bulbs SDKs to HomeKit. 
 
 Instead look at HKBLightAccessoryLIFX.m to see a self contained subclass that links a light object from LIFX's API to the HomeKit API.
 
